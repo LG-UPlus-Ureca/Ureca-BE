@@ -109,9 +109,9 @@ document.getElementById("test").addEventListener("submit", (event) => {
   const question6 = currentForm.querySelector(
     "input[name='question6']:checked"
   ).value;
-  const question7 = currentForm.querySelector(
-    "input[name='question7']:checked"
-  ).value;
+  const question7 = JSON.parse(
+    currentForm.querySelector("input[name='question7']:checked").value
+  );
 
   console.log(question1);
   console.log(question2);
@@ -119,7 +119,7 @@ document.getElementById("test").addEventListener("submit", (event) => {
   console.log(question4);
   console.log(question5);
   console.log(question6);
-  console.log(question7);
+  console.log(question7, typeof question7);
 
   // IT 교육 수강 이력
   const inITLearing = currentForm.inITLearing.value;

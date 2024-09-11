@@ -4,8 +4,410 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>지원 입력 테스트</title>
-    <script></script>
+
+    <script>
+      function onSubmitHandle(event) {
+        event.preventDefault();
+      }
+
+      async function onClickHandle() {
+        await fetch("http://localhost:8080/apply/info")
+          .then((res) => res.text())
+          .then((data) => console.log(data));
+      }
+    </script>
+
+    <script defer src="./main.js"></script>
+
+    <style>
+      .box {
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
 
-  <body></body>
+  <body>
+    <form id="test">
+      <!-- 지원자 정보 입력 -->
+      <h2>지원자 정보</h2>
+      <div class="box">
+        <input type="text" placeholder="이름을 입력해주세요" name="name" />
+        <input type="text" placeholder="나이를 입력해주세요" name="age" />
+        <input type="text" placeholder="성별을 입력해주세요" name="gender" />
+        <input type="text" placeholder="국적을 입력해주세요" name="country" />
+        <input type="text" placeholder="생년월일을 입력해주세요" name="birth" />
+        <input type="text" placeholder="이메일을 입력해주세요" name="email" />
+        <input
+          type="text"
+          placeholder="핸드폰 번호를 입력해주세요"
+          name="phoneNumber"
+        />
+        <input
+          type="text"
+          placeholder="긴급 전화 번호를 입력해주세요"
+          name="emergencyPhoneNumber"
+        />
+        <input
+          type="text"
+          placeholder="긴급 전화 번호의 관계를 입력해주세요"
+          name="emergencyPhoneNumberRelationship"
+        />
+      </div>
+
+      <!-- 기본 정보 입력 -->
+      <h2>기본 정보</h2>
+      <div class="box">
+        <!-- 교육 커리큘럼 선택 -->
+        <div>
+          <div>
+            <input
+              type="radio"
+              id="front"
+              name="objective"
+              value="front"
+              checked
+            />
+            <label for="front">프론트엔드</label>
+          </div>
+
+          <div>
+            <input type="radio" id="back" name="objective" value="back" />
+            <label for="back">백엔드</label>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- 전공, 비전공자 유무 -->
+        <div>
+          <div>
+            <input
+              type="radio"
+              id="major"
+              name="majorSelected"
+              value="major"
+              checked
+            />
+            <label for="major">전공자</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="non-major"
+              name="majorSelected"
+              value="non-major"
+            />
+            <label for="non-major">비전공자</label>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- 지원 경로 선택 -->
+        <div>
+          <label for="path-select">지원 경로 선택</label>
+
+          <select name="path" id="path-select">
+            <option value="">---- 지원 경로 ---</option>
+            <option value="jobkorea">잡코리아</option>
+            <option value="catch">캐치</option>
+          </select>
+        </div>
+
+        <hr />
+
+        <!-- 추가 질문(대면 방식 선택) -->
+        <div style="display: flex; width: 600px">
+          <span style="margin-right: 10px"
+            >1. 교육 방식을 선택해 주시기 바랍니다.
+          </span>
+
+          <div>
+            <input
+              type="radio"
+              id="faceToFace"
+              name="face-to-faceLearning"
+              value="true"
+              checked
+            />
+            <label for="faceToFace">대면</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="nonFaceToFace"
+              name="face-to-faceLearning"
+              value="false"
+            />
+            <label for="nonFaceToFace">비대면</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- 인적 사항 입력 -->
+      <div>
+        <h2>인적 사항</h2>
+        <input type="text" placeholder="주소를 입력해주세요" name="location" />
+      </div>
+
+      <!-- 고등학교 정보 입력 -->
+      <div>
+        <h2>고등학교 정보</h2>
+        <input type="text" placeholder="고등학교 이름을 입력해주세요" />
+
+        <select name="highSchoolLoc" id="high-school-location">
+          <option value="">-- 지역 --</option>
+          <option value="서울">서울</option>
+          <option value="인천">인천</option>
+          <option value="부산">부산</option>
+          <option value="대전">대전</option>
+          <option value="대구">대구</option>
+          <option value="광주">광주</option>
+        </select>
+
+        <select name="highSchoolType" id="high-school-type">
+          <option value="">-- 유형 --</option>
+          <option value="일반고">일반고</option>
+          <option value="특성화고">특성화고</option>
+        </select>
+      </div>
+
+      <!-- 대학교 정보 입력 -->
+      <div>
+        <h2>대학교 정보</h2>
+
+        <select name="universityLoc" id="university-location">
+          <option value="">-- 지역 --</option>
+          <option value="서울">서울</option>
+          <option value="인천">인천</option>
+          <option value="부산">부산</option>
+          <option value="대전">대전</option>
+          <option value="대구">대구</option>
+          <option value="광주">광주</option>
+        </select>
+
+        <input type="text" placeholder="대학교 이름을 입력해주세요" />
+        <input type="text" placeholder="전공 계열을 입력해주세요" />
+        <input type="text" placeholder="학과를 입력해주세요" />
+      </div>
+
+      <!-- 자격 사항 -->
+      <div>
+        <!-- 추가 질문 1 -->
+        <div>
+          <p>
+            1. K-Digital Traning 과정을 수강하신 적이 있습니까? (※ KDT 과정 수강
+            이력 확인 방법 : HRD-net > 나의 정보 > 나의 훈련 > 직업훈련이력 > K-
+            디지털 트레이닝 혹은 4차 산업혁명 인력양성 표시가 있으면 KDT 과정에
+            해당)
+          </p>
+
+          <div>
+            <input
+              type="radio"
+              id="question1-true"
+              name="question1"
+              value="true"
+              checked
+            />
+            <label for="question1-true">예</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="question1-false"
+              name="question1"
+              value="false"
+            />
+            <label for="question1-false">아니요</label>
+          </div>
+        </div>
+
+        <!-- 추가 질문 2 -->
+        <div>
+          <p>
+            2. 본 과정은 하루 8시간, 24.06.10 - 24.12.24까지 진행됩니다.
+            참여하는데 일정 상의 문제가 없습니까?
+          </p>
+
+          <div>
+            <input
+              type="radio"
+              id="question2-true"
+              name="question2"
+              value="true"
+              checked
+            />
+            <label for="question2-true">예</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="question2-false"
+              name="question2"
+              value="false"
+            />
+            <label for="question2-false">아니요</label>
+          </div>
+        </div>
+
+        <!-- 추가 질문 3 -->
+        <div>
+          <p>
+            3. 본 과정은 '국민 평생 직업 능력개발법' 에 의거, 국내 거주자를
+            대상으로 진행되며 해외 거주자 확인 시 강제 퇴소 및 불이익이 있을 수
+            있습니다.
+          </p>
+
+          <div>
+            <input
+              type="radio"
+              id="question3-true"
+              name="question3"
+              value="true"
+              checked
+            />
+            <label for="question3-true">예</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="question3-false"
+              name="question3"
+              value="false"
+            />
+            <label for="question3-false">아니요</label>
+          </div>
+        </div>
+
+        <!-- 추가 질문 4 -->
+        <div>
+          <p>
+            4. 본 과정은 취업을 준비하는 고등학교 및 대학교 졸업(예정)자,
+            재학생의 경우 졸업까지 수업 연한이 2년 이내인 휴학생의 경우 지원
+            가능합니다.
+          </p>
+
+          <div>
+            <input
+              type="radio"
+              id="question4-true"
+              name="question4"
+              value="true"
+              checked
+            />
+            <label for="question4-true">예</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="question4-false"
+              name="question4"
+              value="false"
+            />
+            <label for="question4-false">아니요</label>
+          </div>
+        </div>
+
+        <!-- 추가 질문 5 -->
+        <div>
+          <p>
+            5. 서류 합격 후 SW 적성진단 진행 시 부정행위 방지를 위해 웹캠이나
+            노트북 내장 카메라를 소지해야 합니다. 사전에 준비 부탁드립니다.
+          </p>
+
+          <div>
+            <input
+              type="radio"
+              id="question5-true"
+              name="question5"
+              value="true"
+              checked
+            />
+            <label for="question5-true">예</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="question5-false"
+              name="question5"
+              value="false"
+            />
+            <label for="question5-false">아니요</label>
+          </div>
+        </div>
+
+        <!-- 추가 질문 6 -->
+        <div>
+          <p>
+            6. 본 교육을 수강하기 위해 교육 시작 7일 전까지 내일배움카드가
+            필수적으로 발급되어야 합니다. (※내일배움카드 관련 문의 : 고용노동부
+            1350)
+          </p>
+
+          <div>
+            <input
+              type="radio"
+              id="question6-true"
+              name="question6"
+              value="true"
+              checked
+            />
+            <label for="question6-true">예</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="question6-false"
+              name="question6"
+              value="false"
+            />
+            <label for="question6-false">아니요</label>
+          </div>
+        </div>
+
+        <!-- 추가 질문 7 -->
+        <div>
+          <p>
+            7. 위 내용을 모두 확인하였으며, 사실과 다른 경우 수강이 취소될 수
+            있습니다.
+          </p>
+
+          <div>
+            <input
+              type="radio"
+              id="question7-true"
+              name="question7"
+              value="true"
+              checked
+            />
+            <label for="question7-true">예</label>
+          </div>
+
+          <div>
+            <input
+              type="radio"
+              id="question7-false"
+              name="question7"
+              value="false"
+            />
+            <label for="question7-false">아니요</label>
+          </div>
+        </div>
+      </div>
+
+      <input type="submit" value="제출" />
+    </form>
+  </body>
 </html>

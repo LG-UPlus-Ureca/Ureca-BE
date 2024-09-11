@@ -1,4 +1,4 @@
-package com.ureca.lg_uplus_ureca_site_be.apply.dto;
+package com.ureca.lg_uplus_ureca_site_be.dto;
 
 import java.time.LocalDate;
 
@@ -396,5 +396,46 @@ public class Apply {
   public void setSelfIntroduce3(String selfIntroduce3) {
     this.selfIntroduce3 = selfIntroduce3;
   }
+
+  @Override
+  public String toString() {
+    return "{" +
+      " applicantId='" + getApplicantId() + "'" +
+      ", name='" + getName() + "'" +
+      ", age='" + getAge() + "'" +
+      ", gender='" + isGender() + "'" +
+      ", country='" + getCountry() + "'" +
+      ", birth='" + getBirth() + "'" +
+      ", email='" + getEmail() + "'" +
+      ", phoneNumber='" + getPhoneNumber() + "'" +
+      ", emergencyPhoneNumber='" + getEmergencyPhoneNumber() + "'" +
+      ", emergencyPhoneNumberRelationship='" + getEmergencyPhoneNumberRelationship() + "'" +
+      ", supportField='" + isSupportField() + "'" +
+      ", majorField='" + isMajorField() + "'" +
+      ", supportPath='" + getSupportPath() + "'" +
+      ", teachingStyle='" + isTeachingStyle() + "'" +
+      ", address='" + getAddress() + "'" +
+      ", highSchool='" + getHighSchool() + "'" +
+      ", highSchoolLocation='" + getHighSchoolLocation() + "'" +
+      ", highSchoolType='" + getHighSchoolType() + "'" +
+      ", universityLocation='" + getUniversityLocation() + "'" +
+      ", university='" + getUniversity() + "'" +
+      ", universityeDpartment='" + getUniversityeDpartment() + "'" +
+      ", universityeMajor='" + getUniversityeMajor() + "'" +
+      ", universityStatus='" + getUniversityStatus() + "'" +
+      ", additionalQuestions1='" + isAdditionalQuestions1() + "'" +
+      ", additionalQuestions2='" + isAdditionalQuestions2() + "'" +
+      ", additionalQuestions3='" + isAdditionalQuestions3() + "'" +
+      ", additionalQuestions4='" + isAdditionalQuestions4() + "'" +
+      ", additionalQuestions5='" + isAdditionalQuestions5() + "'" +
+      ", additionalQuestions6='" + isAdditionalQuestions6() + "'" +
+      ", additionalQuestions7='" + isAdditionalQuestions7() + "'" +
+      ", inITLearing='" + getInITLearing() + "'" +
+      ", selfIntroduce1='" + getSelfIntroduce1() + "'" +
+      ", selfIntroduce2='" + getSelfIntroduce2() + "'" +
+      ", selfIntroduce3='" + getSelfIntroduce3() + "'" +
+      "}";
+  }
+
 
 }

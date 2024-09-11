@@ -5,12 +5,12 @@ document.getElementById("test").addEventListener("submit", (event) => {
 
   // 지원자 정보 입력
   const name = currentForm.name.value; // 이름
-  const age = currentForm.age.value; // 나이
+  const age = Number(currentForm.age.value); // 나이
 
   // 성별
-  const gender = currentForm.querySelector(
-    "input[name='gender']:checked"
-  ).value;
+  const gender = JSON.parse(
+    currentForm.querySelector("input[name='gender']:checked").value
+  );
 
   const country = currentForm.country.value; // 국가
   const birth = currentForm.birth.value; // 생년월일
@@ -36,14 +36,14 @@ document.getElementById("test").addEventListener("submit", (event) => {
 
   // 기본 정보 입력
   //  1. 교육 커리큘럼 선택
-  const objectiveValue = currentForm.querySelector(
-    "input[name='objective']:checked"
-  ).value;
+  const objectiveValue = JSON.parse(
+    currentForm.querySelector("input[name='objective']:checked").value
+  );
 
   //  2. 전공, 비전공자 유무 선택
-  const majorSelectedValue = currentForm.querySelector(
-    "input[name='majorSelected']:checked"
-  ).value;
+  const majorSelectedValue = JSON.parse(
+    currentForm.querySelector("input[name='majorSelected']:checked").value
+  );
 
   //  3. 지원 경로 선택
   const pathSelectedValue = currentForm.querySelector(
@@ -51,17 +51,18 @@ document.getElementById("test").addEventListener("submit", (event) => {
   ).value;
 
   //  4. 대면 방식 선택
-  const learning = currentForm.querySelector(
-    "input[name='face-to-faceLearning']:checked"
-  ).value;
+  const learningSelectedValue = JSON.parse(
+    currentForm.querySelector("input[name='face-to-faceLearning']:checked")
+      .value
+  );
 
   // 5. 인적 사항 입력
-  const location = currentForm.querySelector("input[name='location']").value;
+  const location = currentForm.location.value;
 
   console.log(objectiveValue);
   console.log(majorSelectedValue);
   console.log(pathSelectedValue);
-  console.log(learning);
+  console.log(learningSelectedValue);
   console.log(location);
 
   // 고등학교 정보
@@ -84,6 +85,9 @@ document.getElementById("test").addEventListener("submit", (event) => {
   const universityName = currentForm.university.value;
   const universityDpartement = currentForm.universityDpartement.value;
   const universityMajor = currentForm.universityMajor.value;
+  const universityStatus = currentForm.querySelector(
+    "select[name='universityStatus']"
+  ).value;
 
   console.log(universityLocation);
   console.log(universityName);
@@ -91,24 +95,24 @@ document.getElementById("test").addEventListener("submit", (event) => {
   console.log(universityMajor);
 
   // 자격사항
-  const question1 = currentForm.querySelector(
-    "input[name='question1']:checked"
-  ).value;
-  const question2 = currentForm.querySelector(
-    "input[name='question2']:checked"
-  ).value;
-  const question3 = currentForm.querySelector(
-    "input[name='question3']:checked"
-  ).value;
-  const question4 = currentForm.querySelector(
-    "input[name='question4']:checked"
-  ).value;
-  const question5 = currentForm.querySelector(
-    "input[name='question5']:checked"
-  ).value;
-  const question6 = currentForm.querySelector(
-    "input[name='question6']:checked"
-  ).value;
+  const question1 = JSON.parse(
+    currentForm.querySelector("input[name='question1']:checked").value
+  );
+  const question2 = JSON.parse(
+    currentForm.querySelector("input[name='question2']:checked").value
+  );
+  const question3 = JSON.parse(
+    currentForm.querySelector("input[name='question3']:checked").value
+  );
+  const question4 = JSON.parse(
+    currentForm.querySelector("input[name='question4']:checked").value
+  );
+  const question5 = JSON.parse(
+    currentForm.querySelector("input[name='question5']:checked").value
+  );
+  const question6 = JSON.parse(
+    currentForm.querySelector("input[name='question6']:checked").value
+  );
   const question7 = JSON.parse(
     currentForm.querySelector("input[name='question7']:checked").value
   );
@@ -133,4 +137,48 @@ document.getElementById("test").addEventListener("submit", (event) => {
   console.log(selfIntroduce1);
   console.log(selfIntroduce2);
   console.log(selfIntroduce3);
+
+  fetch("/apply/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      age,
+      gender,
+      country,
+      birth,
+      email,
+      phoneNumber,
+      emergencyPhoneNumber,
+      emergencyPhoneNumberRelationship,
+      supportField: objectiveValue,
+      majorField: majorSelectedValue,
+      supportPath: pathSelectedValue,
+      teachingStyle: learningSelectedValue,
+      address: location,
+      highSchool: highSchoolName,
+      highSchoolLocation: highSchoolLocation,
+      highSchoolType: highSchoolType,
+      universityLocation: universityLocation,
+      university: universityName,
+      universityeDpartment: universityDpartement,
+      universityeMajor: universityMajor,
+      universityStatus,
+      additionalQuestions1: question1,
+      additionalQuestions2: question2,
+      additionalQuestions3: question3,
+      additionalQuestions4: question4,
+      additionalQuestions5: question5,
+      additionalQuestions6: question6,
+      additionalQuestions7: question7,
+      inITLearing,
+      selfIntroduce1,
+      selfIntroduce2,
+      selfIntroduce3,
+    }),
+  })
+    .then((res) => res.text())
+    .then((data) => console.log(data));
 });

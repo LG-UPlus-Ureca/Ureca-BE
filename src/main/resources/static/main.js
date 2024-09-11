@@ -179,6 +179,6 @@ document.getElementById("test").addEventListener("submit", (event) => {
       selfIntroduce3,
     }),
   })
-    .then((res) => res.text())
+    .then((res) => res.json())
     .then((data) => console.log(data));
 });

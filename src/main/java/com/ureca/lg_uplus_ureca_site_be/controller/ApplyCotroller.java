@@ -34,11 +34,17 @@ public class ApplyCotroller {
     UUID uuid4 = UUID.randomUUID();
     apply.setApplicantId(uuid4.toString()); // 지원자 고유한 키 값 등록
 
-    // 동일한 이름, 전화번호로 지원서를 제출한 경우 -> 중복된 지원 항목 존재 결과 반환
+    // 현재 작성된 지원서 정보가 동일한 사람이 작성했는지 확인한다.
+    Apply list = service.checkOverlapApply(apply.getName(), apply.getPhoneNumber());
     
-    // 위의 조건에 위배되지 않는 경우 -> 지원서 DB에 등록
-    int result = service.registerApplication(apply);
-    System.out.println(result);
+    // 동일한 이름, 전화번호로 지원서를 제출한 경우 -> 중복된 지원 항목 존재 결과 반환
+    if(list != null) {
+      response.put("status", "DUPLICATE_APPLICATION_ERROR");
+    } else {
+      // 위의 조건에 위배되지 않는 경우 -> 지원서 DB에 등록
+      service.registerApplication(apply);
+      response.put("status", "APPLICATION_SUBMISSION_SUCCESS");
+    }
 
     return response;
   }
@@ -47,7 +53,10 @@ public class ApplyCotroller {
   // 지원서 확인
   @GetMapping("/confirm")
   public String getMethodName() {
-      return "My List Confirm";
+      
+    // 입력한 이름과 전화번호에 해당하는 지원서 확인
+    
+    return "My List Confirm";
   }
   
 }

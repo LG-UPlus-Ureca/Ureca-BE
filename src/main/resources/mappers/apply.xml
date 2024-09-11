@@ -3,6 +3,11 @@
 
 <mapper namespace="com.ureca.lg_uplus_ureca_site_be.dao.ApplyDAO">
 
+  <select id="checkOverlap" parameterType="map" resultType="Apply">
+    select * from apply
+    where name=#{name} AND phoneNumber=#{phoneNumber}
+  </select>
+
   <insert id="registerApply" parameterType="Apply">
     INSERT INTO apply
     <trim prefix="(" suffix=")" suffixOverrides=",">

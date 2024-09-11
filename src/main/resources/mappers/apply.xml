@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ureca.lg_uplus_ureca_site_be.dao.ApplyDAO">
+
+  <select id="checkOverlap" parameterType="map" resultType="Apply">
+    select * from apply
+    where name=#{name} AND phoneNumber=#{phoneNumber}
+  </select>
+
+  <insert id="registerApply" parameterType="Apply">
+    INSERT INTO apply
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="applicantId != null">applicantId,</if>
+      <if test="name != null">name,</if>
+      <if test="age != null">age,</if>
+      <if test="gender != null">gender,</if>
+      <if test="country != null">country,</if>
+      <if test="birth != null">birth,</if>
+      <if test="email != null">email,</if>
+      <if test="phoneNumber != null">phoneNumber,</if>
+      <if test="emergencyPhoneNumber != null">emergencyPhoneNumber,</if>
+      <if test="emergencyPhoneNumberRelationship != null">emergencyPhoneNumberRelationship,</if>
+      <if test="supportField != null">supportField,</if>
+      <if test="majorField != null">majorField,</if>
+      <if test="supportPath != null">supportPath,</if>
+      <if test="teachingStyle != null">teachingStyle,</if>
+      <if test="address != null">address,</if>
+      <if test="highSchool != null">highSchool,</if>
+      <if test="highSchoolLocation != null">highSchoolLocation,</if>
+      <if test="highSchoolType != null">highSchoolType,</if>
+      <if test="universityLocation != null">universityLocation,</if>
+      <if test="university != null">university,</if>
+      <if test="universityeDpartment != null">universityeDpartment,</if>
+      <if test="universityeMajor != null">universityeMajor,</if>
+      <if test="universityStatus != null">universityStatus,</if>
+      <if test="additionalQuestions1 != null">additionalQuestions1,</if>
+      <if test="additionalQuestions2 != null">additionalQuestions2,</if>
+      <if test="additionalQuestions3 != null">additionalQuestions3,</if>
+      <if test="additionalQuestions4 != null">additionalQuestions4,</if>
+      <if test="additionalQuestions5 != null">additionalQuestions5,</if>
+      <if test="additionalQuestions6 != null">additionalQuestions6,</if>
+      <if test="additionalQuestions7 != null">additionalQuestions7,</if>
+      <if test="inITLearing != null">inITLearing,</if>
+      <if test="selfIntroduce1 != null">selfIntroduce1,</if>
+      <if test="selfIntroduce2 != null">selfIntroduce2,</if>
+      <if test="selfIntroduce3 != null">selfIntroduce3,</if>
+    </trim>
+
+    <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+      <if test="applicantId != null">#{applicantId},</if>
+      <if test="name != null">#{name},</if>
+      <if test="age != null">#{age},</if>
+      <if test="gender != null">#{gender},</if>
+      <if test="country != null">#{country},</if>
+      <if test="birth != null">#{birth},</if>
+      <if test="email != null">#{email},</if>
+      <if test="phoneNumber != null">#{phoneNumber},</if>
+      <if test="emergencyPhoneNumber != null">#{emergencyPhoneNumber},</if>
+      <if test="emergencyPhoneNumberRelationship != null">#{emergencyPhoneNumberRelationship},</if>
+      <if test="supportField != null">#{supportField},</if>
+      <if test="majorField != null">#{majorField},</if>
+      <if test="supportPath != null">#{supportPath},</if>
+      <if test="teachingStyle != null">#{teachingStyle},</if>
+      <if test="address != null">#{address},</if>
+      <if test="highSchool != null">#{highSchool},</if>
+      <if test="highSchoolLocation != null">#{highSchoolLocation},</if>
+      <if test="highSchoolType != null">#{highSchoolType},</if>
+      <if test="universityLocation != null">#{universityLocation},</if>
+      <if test="university != null">#{university},</if>
+      <if test="universityeDpartment != null">#{universityeDpartment},</if>
+      <if test="universityeMajor != null">#{universityeMajor},</if>
+      <if test="universityStatus != null">#{universityStatus},</if>
+      <if test="additionalQuestions1 != null">#{additionalQuestions1},</if>
+      <if test="additionalQuestions2 != null">#{additionalQuestions2},</if>
+      <if test="additionalQuestions3 != null">#{additionalQuestions3},</if>
+      <if test="additionalQuestions4 != null">#{additionalQuestions4},</if>
+      <if test="additionalQuestions5 != null">#{additionalQuestions5},</if>
+      <if test="additionalQuestions6 != null">#{additionalQuestions6},</if>
+      <if test="additionalQuestions7 != null">#{additionalQuestions7},</if>
+      <if test="inITLearing != null">#{inITLearing},</if>
+      <if test="selfIntroduce1 != null">#{selfIntroduce1},</if>
+      <if test="selfIntroduce2 != null">#{selfIntroduce2},</if>
+      <if test="selfIntroduce3 != null">#{selfIntroduce3},</if>
+    </trim>
+  </insert>
+
+</mapper>

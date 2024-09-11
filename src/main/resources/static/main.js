@@ -1,3 +1,4 @@
+// 지원서 제출 버튼 클릭할 경우 발생하는 이벤트
 document.getElementById("test").addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -182,3 +183,11 @@ document.getElementById("test").addEventListener("submit", (event) => {
     .then((res) => res.json())
     .then((data) => console.log(data));
 });
+
+const btn = document
+  .querySelector(".career-history button")
+  .addEventListener("click", (event) => {
+    event.preventDefault();
+
+    console.log("추가");
+  });

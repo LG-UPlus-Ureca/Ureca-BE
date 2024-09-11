@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ureca.lg_uplus_ureca_site_be.dto.Apply;
+import com.ureca.lg_uplus_ureca_site_be.service.ApplyService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,12 +13,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/apply")
 public class ApplyCotroller {
   
+  @Autowired
+  ApplyService service;
+
   // 지원서 제출 할 경우
   @PostMapping("/submit")
   public Map<String, Object> postMethodName(@RequestBody Apply apply) {

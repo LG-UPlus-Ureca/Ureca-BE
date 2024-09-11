@@ -1,26 +1,26 @@
 document.getElementById("test").addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const uuid = ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
-    (
-      c ^
-      (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))
-    ).toString(16)
-  );
-
-  console.log("uuid : " + uuid);
-
   const currentForm = event.target;
 
   // 지원자 정보 입력
-  const name = currentForm.name.value;
-  const age = currentForm.age.value;
-  const gender = currentForm.gender.value;
-  const country = currentForm.country.value;
-  const birth = currentForm.birth.value;
-  const email = currentForm.email.value;
-  const phoneNumber = currentForm.phoneNumber.value;
+  const name = currentForm.name.value; // 이름
+  const age = currentForm.age.value; // 나이
+
+  // 성별
+  const gender = currentForm.querySelector(
+    "input[name='gender']:checked"
+  ).value;
+
+  const country = currentForm.country.value; // 국가
+  const birth = currentForm.birth.value; // 생년월일
+  const email = currentForm.email.value; // 이메일
+  const phoneNumber = currentForm.phoneNumber.value; // 핸드폰 번호
+
+  // 긴급 전화 번호
   const emergencyPhoneNumber = currentForm.emergencyPhoneNumber.value;
+
+  // 긴근전화 번호 관계
   const emergencyPhoneNumberRelationship =
     currentForm.emergencyPhoneNumberRelationship.value;
 
@@ -63,4 +63,74 @@ document.getElementById("test").addEventListener("submit", (event) => {
   console.log(pathSelectedValue);
   console.log(learning);
   console.log(location);
+
+  // 고등학교 정보
+  const highSchoolName = currentForm.highSchoolName.value;
+  const highSchoolLocation = currentForm.querySelector(
+    "select[name='highSchoolLoc']"
+  ).value;
+  const highSchoolType = currentForm.querySelector(
+    "select[name='highSchoolType']"
+  ).value;
+
+  console.log(highSchoolName);
+  console.log(highSchoolLocation);
+  console.log(highSchoolType);
+
+  // 대학교 정보
+  const universityLocation = currentForm.querySelector(
+    "select[name='universityLoc']"
+  ).value;
+  const universityName = currentForm.university.value;
+  const universityDpartement = currentForm.universityDpartement.value;
+  const universityMajor = currentForm.universityMajor.value;
+
+  console.log(universityLocation);
+  console.log(universityName);
+  console.log(universityDpartement);
+  console.log(universityMajor);
+
+  // 자격사항
+  const question1 = currentForm.querySelector(
+    "input[name='question1']:checked"
+  ).value;
+  const question2 = currentForm.querySelector(
+    "input[name='question2']:checked"
+  ).value;
+  const question3 = currentForm.querySelector(
+    "input[name='question3']:checked"
+  ).value;
+  const question4 = currentForm.querySelector(
+    "input[name='question4']:checked"
+  ).value;
+  const question5 = currentForm.querySelector(
+    "input[name='question5']:checked"
+  ).value;
+  const question6 = currentForm.querySelector(
+    "input[name='question6']:checked"
+  ).value;
+  const question7 = currentForm.querySelector(
+    "input[name='question7']:checked"
+  ).value;
+
+  console.log(question1);
+  console.log(question2);
+  console.log(question3);
+  console.log(question4);
+  console.log(question5);
+  console.log(question6);
+  console.log(question7);
+
+  // IT 교육 수강 이력
+  const inITLearing = currentForm.inITLearing.value;
+  console.log(inITLearing);
+
+  // 자기소개
+  const selfIntroduce1 = currentForm.selfIntroduce1.value;
+  const selfIntroduce2 = currentForm.selfIntroduce2.value;
+  const selfIntroduce3 = currentForm.selfIntroduce3.value;
+
+  console.log(selfIntroduce1);
+  console.log(selfIntroduce2);
+  console.log(selfIntroduce3);
 });

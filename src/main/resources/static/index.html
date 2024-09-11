@@ -36,7 +36,15 @@
       <div class="box">
         <input type="text" placeholder="이름을 입력해주세요" name="name" />
         <input type="text" placeholder="나이를 입력해주세요" name="age" />
-        <input type="text" placeholder="성별을 입력해주세요" name="gender" />
+
+        <div>
+          <input type="radio" id="male" name="gender" value="true" checked />
+          <label for="male">남성</label>
+
+          <input type="radio" id="female" name="gender" value="true" />
+          <label for="female">여성</label>
+        </div>
+
         <input type="text" placeholder="국적을 입력해주세요" name="country" />
         <input type="text" placeholder="생년월일을 입력해주세요" name="birth" />
         <input type="text" placeholder="이메일을 입력해주세요" name="email" />
@@ -67,14 +75,14 @@
               type="radio"
               id="front"
               name="objective"
-              value="front"
+              value="true"
               checked
             />
             <label for="front">프론트엔드</label>
           </div>
 
           <div>
-            <input type="radio" id="back" name="objective" value="back" />
+            <input type="radio" id="back" name="objective" value="false" />
             <label for="back">백엔드</label>
           </div>
         </div>
@@ -88,7 +96,7 @@
               type="radio"
               id="major"
               name="majorSelected"
-              value="major"
+              value="true"
               checked
             />
             <label for="major">전공자</label>
@@ -99,7 +107,7 @@
               type="radio"
               id="non-major"
               name="majorSelected"
-              value="non-major"
+              value="false"
             />
             <label for="non-major">비전공자</label>
           </div>
@@ -158,7 +166,11 @@
       <!-- 고등학교 정보 입력 -->
       <div>
         <h2>고등학교 정보</h2>
-        <input type="text" placeholder="고등학교 이름을 입력해주세요" />
+        <input
+          type="text"
+          placeholder="고등학교 이름을 입력해주세요"
+          name="highSchoolName"
+        />
 
         <select name="highSchoolLoc" id="high-school-location">
           <option value="">-- 지역 --</option>
@@ -191,13 +203,35 @@
           <option value="광주">광주</option>
         </select>
 
-        <input type="text" placeholder="대학교 이름을 입력해주세요" />
-        <input type="text" placeholder="전공 계열을 입력해주세요" />
-        <input type="text" placeholder="학과를 입력해주세요" />
+        <input
+          type="text"
+          placeholder="대학교 이름을 입력해주세요"
+          name="university"
+        />
+        <input
+          type="text"
+          placeholder="전공 계열을 입력해주세요"
+          name="universityDpartement"
+        />
+        <input
+          type="text"
+          placeholder="학과를 입력해주세요"
+          name="universityMajor"
+        />
+
+        <select name="universityStatus" id="university-Status">
+          <option value="">-- 재학 여부 --</option>
+          <option value="졸업">졸업</option>
+          <option value="졸업 예정">졸업 예정</option>
+          <option value="재학">재학</option>
+          <option value="휴학">휴학</option>
+        </select>
       </div>
 
       <!-- 자격 사항 -->
       <div>
+        <h2>자격사항</h2>
+
         <!-- 추가 질문 1 -->
         <div>
           <p>
@@ -404,6 +438,59 @@
             />
             <label for="question7-false">아니요</label>
           </div>
+        </div>
+      </div>
+
+      <div>
+        <h2>경력사항</h2>
+
+        <p>IT와 관련된 교육을 수강해 본 이력이 있다면 기술해주십시오.</p>
+        <textarea name="inITLearing"></textarea>
+      </div>
+
+      <div>
+        <h2>자격증</h2>
+      </div>
+
+      <div>
+        <h2>수상경력</h2>
+      </div>
+
+      <div>
+        <h2>학내외활동</h2>
+      </div>
+
+      <div>
+        <h2>자기소개서</h2>
+
+        <!-- 자기소개서 1 -->
+        <div>
+          <p>
+            1. LG 유플러스 유레카 SW교육에 지원하신 동기와 과정 수료 후, 이루고
+            싶은 취업 계획을 작성해 주십시오.
+          </p>
+          <textarea name="selfIntroduce1"></textarea>
+        </div>
+
+        <!-- 자기소개서 2 -->
+        <div>
+          <p>
+            2. [비전공생] 2-1. SW에 관심을 가지게 된 계기 혹은 취업 준비를 하며
+            겪었던 경험에 대해 작성하고, LG 유플러스 유레카 SW교육 과정을 통해
+            향후 어떤 개발자로 성장하고 싶은지 작성해 주십시오.
+          </p>
+          <textarea name="selfIntroduce2"></textarea>
+        </div>
+
+        <!-- 자기소개서 3 -->
+        <div>
+          <p>
+            3. [전공생] 2-2. SW 관련 경험 중 어려웠던 과제와 해결 방안에 대해
+            작성하고, LG 유플러스 유레카 SW교육 과정을 통해 향후 어떤 개발자로
+            성장하고 싶은지 작성해 주십시오. ※SW 관련 경험 : SW 개발, SW
+            프로젝트 및 경진대회 경험(참여, 수상 등), IT 관련 자격증 취득 등
+          </p>
+          <textarea name="selfIntroduce3"></textarea>
         </div>
       </div>
 

@@ -63,18 +63,18 @@
 		
 		<!-- MyBatis 의존성 추가 -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-		<!-- <dependency>
+		<dependency>
 		    <groupId>org.mybatis</groupId>
 		    <artifactId>mybatis</artifactId>
 		    <version>3.5.16</version>
-		</dependency> -->
+		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
-		<!-- <dependency>
+		<dependency>
 		    <groupId>org.mybatis.spring.boot</groupId>
 		    <artifactId>mybatis-spring-boot-starter</artifactId>
 		    <version>3.0.3</version>
-		</dependency> -->
+		</dependency>
 
 	</dependencies>
 

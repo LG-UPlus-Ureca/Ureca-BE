@@ -15,12 +15,12 @@ public class ApplyServiceImpl implements ApplyService {
 
   @Override
   public Apply checkOverlapApply(String name, String phoneNumber) throws SQLException {
-    throw new UnsupportedOperationException("Unimplemented method 'checkOverlapApply'");
+    return dao.checkOverlap(name, phoneNumber);
   }
 
   @Override
   public int registerApplication(Apply newList) throws SQLException {
-    throw new UnsupportedOperationException("Unimplemented method 'registerApplication'");
+    return dao.registerApply(newList);
   }
   
 }

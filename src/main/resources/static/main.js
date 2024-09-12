@@ -193,13 +193,13 @@ document.getElementById("test").addEventListener("submit", (event) => {
   //   .then((data) => console.log(data));
 });
 
-const btn = document
+document
   .querySelector(".career-history button")
   .addEventListener("click", (event) => {
     event.preventDefault();
 
-    const $div = document.createElement("div");
-    $div.classList.add("career-list-item");
+    const $form = document.createElement("form");
+    $form.classList.add("career-list-item");
 
     // 직장 이름 입력하는 input 타입 생성
     const $inputJobName = document.createElement("input");
@@ -252,15 +252,15 @@ const btn = document
     $deleteBtn.textContent = "삭제";
 
     $deleteBtn.addEventListener("click", () => {
-      $div.remove();
+      $form.remove();
     });
 
-    $div.appendChild($inputJobName);
-    $div.appendChild($selectJobType);
-    $div.appendChild($inputJobTitle);
-    $div.appendChild($inputJobDuties);
-    $div.appendChild($inputJobTenure);
-    $div.appendChild($deleteBtn);
+    $form.appendChild($inputJobName);
+    $form.appendChild($selectJobType);
+    $form.appendChild($inputJobTitle);
+    $form.appendChild($inputJobDuties);
+    $form.appendChild($inputJobTenure);
+    $form.appendChild($deleteBtn);
 
-    document.querySelector(".career-history").appendChild($div);
+    document.querySelector(".career-history").appendChild($form);
   });

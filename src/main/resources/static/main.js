@@ -142,11 +142,23 @@ document.getElementById("test").addEventListener("submit", (event) => {
   // console.log(selfIntroduce3);
 
   // 경력 사항 정보 가져오기
-  const careerList = document.querySelectorAll(
-    ".career-history .career-list-item"
-  );
+  const career = document.querySelectorAll(".career .career-list-item");
+  const careerList = [];
 
-  console.log(careerList);
+  // 경력 사항 정보 저장하기
+  if (career.length > 0) {
+    career.forEach((element) => {
+      careerList.push({
+        jobName: element.jobName.value,
+        jobType: element.querySelector("select[name='jobType']").value,
+        jobTitle: element.jobTitle.value,
+        jobDuties: element.jobDuties.value,
+        jobTenure: element.jobTenure.value,
+      });
+    });
+  }
+
+  // console.log(careerList);
 
   // fetch("/apply/submit", {
   //   method: "POST",
@@ -193,59 +205,108 @@ document.getElementById("test").addEventListener("submit", (event) => {
   //   .then((data) => console.log(data));
 });
 
+// 직장 경력 추가 버튼 클릭할 경우
+document.querySelector(".career button").addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const $form = document.createElement("form");
+  $form.classList.add("career-list-item");
+
+  // 직장 이름 입력하는 input 타입 생성
+  const $inputJobName = document.createElement("input");
+  $inputJobName.type = "text";
+  $inputJobName.placeholder = "직장명을 입력해주세요." + x++;
+  $inputJobName.name = "jobName";
+
+  // 직장 종류를 선택하는 select 타입 생성
+  const $selectJobType = document.createElement("select");
+  $selectJobType.name = "jobType";
+
+  // 직장 종류 #1. 아르바이트
+  const $optionPartTimeJob = document.createElement("option");
+  $optionPartTimeJob.value = "아르바이트";
+  $optionPartTimeJob.textContent = "아르바이트";
+
+  // 직장 종류 #2. 인턴
+  const $optionIntern = document.createElement("option");
+  $optionIntern.value = "인턴";
+  $optionIntern.textContent = "인턴";
+
+  // 직장 종류 #3. 정규직
+  const $optionFullTimeJob = document.createElement("option");
+  $optionFullTimeJob.value = "정규직";
+  $optionFullTimeJob.textContent = "정규직";
+
+  $selectJobType.appendChild($optionPartTimeJob);
+  $selectJobType.appendChild($optionIntern);
+  $selectJobType.appendChild($optionFullTimeJob);
+
+  // 직급을 입력하는 input 타입 생성
+  const $inputJobTitle = document.createElement("input");
+  $inputJobTitle.type = "text";
+  $inputJobTitle.placeholder = "직급을 입력해주세요.";
+  $inputJobTitle.name = "jobTitle";
+
+  // 담당 업무를 입력하는 input 타입 생성
+  const $inputJobDuties = document.createElement("input");
+  $inputJobDuties.type = "text";
+  $inputJobDuties.placeholder = "담당 업무를 작성해주세요.";
+  $inputJobDuties.name = "jobDuties";
+
+  // 업무 기간을 입력하는 input 타입 생성
+  const $inputJobTenure = document.createElement("input");
+  $inputJobTenure.type = "date";
+  $inputJobTenure.name = "jobTenure";
+
+  const $deleteBtn = document.createElement("button");
+  $deleteBtn.type = "button";
+  $deleteBtn.textContent = "삭제";
+
+  $deleteBtn.addEventListener("click", () => {
+    $form.remove();
+  });
+
+  $form.appendChild($inputJobName);
+  $form.appendChild($selectJobType);
+  $form.appendChild($inputJobTitle);
+  $form.appendChild($inputJobDuties);
+  $form.appendChild($inputJobTenure);
+  $form.appendChild($deleteBtn);
+
+  document.querySelector(".career").appendChild($form);
+});
+
+// 자격증 경력 추가 버튼 클릭할 경우
 document
-  .querySelector(".career-history button")
+  .querySelector(".certificate button")
   .addEventListener("click", (event) => {
     event.preventDefault();
 
     const $form = document.createElement("form");
-    $form.classList.add("career-list-item");
+    $form.classList.add("certificate-list-item");
 
-    // 직장 이름 입력하는 input 타입 생성
-    const $inputJobName = document.createElement("input");
-    $inputJobName.type = "text";
-    $inputJobName.placeholder = "직장명을 입력해주세요." + x++;
-    $inputJobName.name = "jobName";
+    // 자격증 이름 입력하는 input 타입 생성
+    const $inputCertificateName = document.createElement("input");
+    $inputCertificateName.type = "text";
+    $inputCertificateName.placeholder = "자격증 이름을 명시해주세요.";
+    $inputCertificateName.name = "CertificateName";
 
-    // 직장 종류를 선택하는 select 타입 생성
-    const $selectJobType = document.createElement("select");
-    $selectJobType.name = "jobType";
+    // 자격증 등급을 입력하는 input 타입 생성
+    const $inputCertificateGrade = document.createElement("input");
+    $inputCertificateGrade.type = "text";
+    $inputCertificateGrade.placeholder = "자격증 등급을 입력해주세요.";
+    $inputCertificateGrade.name = "CertificateGrade";
 
-    // 직장 종류 #1. 아르바이트
-    const $optionPartTimeJob = document.createElement("option");
-    $optionPartTimeJob.value = "아르바이트";
-    $optionPartTimeJob.textContent = "아르바이트";
-
-    // 직장 종류 #2. 인턴
-    const $optionIntern = document.createElement("option");
-    $optionIntern.value = "인턴";
-    $optionIntern.textContent = "인턴";
-
-    // 직장 종류 #3. 정규직
-    const $optionFullTimeJob = document.createElement("option");
-    $optionFullTimeJob.value = "정규직";
-    $optionFullTimeJob.textContent = "정규직";
-
-    $selectJobType.appendChild($optionPartTimeJob);
-    $selectJobType.appendChild($optionIntern);
-    $selectJobType.appendChild($optionFullTimeJob);
-
-    // 직급을 입력하는 input 타입 생성
-    const $inputJobTitle = document.createElement("input");
-    $inputJobTitle.type = "text";
-    $inputJobTitle.placeholder = "직급을 입력해주세요.";
-    $inputJobTitle.name = "jobTitle";
-
-    // 담당 업무를 입력하는 input 타입 생성
-    const $inputJobDuties = document.createElement("input");
-    $inputJobDuties.type = "text";
-    $inputJobDuties.placeholder = "담당 업무를 작성해주세요.";
-    $inputJobDuties.name = "jobDuties";
+    // 자격증 발급 기관을 입력하는 input 타입 생성
+    const $inputIssuingOrganization = document.createElement("input");
+    $inputIssuingOrganization.type = "text";
+    $inputIssuingOrganization.placeholder = "자격증 발급 기관을 작성해주세요.";
+    $inputIssuingOrganization.name = "IssuingOrganization";
 
     // 업무 기간을 입력하는 input 타입 생성
-    const $inputJobTenure = document.createElement("input");
-    $inputJobTenure.type = "date";
-    $inputJobTenure.name = "JobTenure";
+    const $inputCertificateDateAcquired = document.createElement("input");
+    $inputCertificateDateAcquired.type = "date";
+    $inputCertificateDateAcquired.name = "CertificateDateAcquired";
 
     const $deleteBtn = document.createElement("button");
     $deleteBtn.type = "button";
@@ -255,12 +316,11 @@ document
       $form.remove();
     });
 
-    $form.appendChild($inputJobName);
-    $form.appendChild($selectJobType);
-    $form.appendChild($inputJobTitle);
-    $form.appendChild($inputJobDuties);
-    $form.appendChild($inputJobTenure);
+    $form.appendChild($inputCertificateName);
+    $form.appendChild($inputCertificateGrade);
+    $form.appendChild($inputIssuingOrganization);
+    $form.appendChild($inputCertificateDateAcquired);
     $form.appendChild($deleteBtn);
 
-    document.querySelector(".career-history").appendChild($form);
+    document.querySelector(".certificate").appendChild($form);
   });

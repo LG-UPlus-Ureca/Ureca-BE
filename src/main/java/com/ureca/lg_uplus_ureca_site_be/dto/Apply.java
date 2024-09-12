@@ -29,22 +29,22 @@ public class Apply {
   private String universitye_dpartment;
   private String universitye_major;
   private String university_status;
-  private JsonNode questions;
+  private String questions;
   private String it_learing;
   private String selfIntroduce1;
   private String selfIntroduce2;
   private String selfIntroduce3;
-  private JsonNode career;
-  private JsonNode certificate;
-  private JsonNode awards;
-  private JsonNode activity;
+  private String career;
+  private String certificate;
+  private String awards;
+  private String activity;
 
 
   public Apply() {
   }
 
 
-  public Apply(String applicant_id, String name, int age, boolean gender, String country, LocalDate birth, String email, String phone_number, String emergency_phone_number, String emergency_phone_number_relationship, boolean support_field, boolean major_field, String support_path, boolean teaching_style, String address, String high_school, String high_school_location, String high_school_type, String university_location, String university, String universitye_dpartment, String universitye_major, String university_status, JsonNode questions, String it_learing, String selfIntroduce1, String selfIntroduce2, String selfIntroduce3, JsonNode career, JsonNode certificate, JsonNode awards, JsonNode activity) {
+  public Apply(String applicant_id, String name, int age, boolean gender, String country, LocalDate birth, String email, String phone_number, String emergency_phone_number, String emergency_phone_number_relationship, boolean support_field, boolean major_field, String support_path, boolean teaching_style, String address, String high_school, String high_school_location, String high_school_type, String university_location, String university, String universitye_dpartment, String universitye_major, String university_status, String questions, String it_learing, String selfIntroduce1, String selfIntroduce2, String selfIntroduce3, String career, String certificate, String awards, String activity) {
     this.applicant_id = applicant_id;
     this.name = name;
     this.age = age;
@@ -280,11 +280,11 @@ public class Apply {
     this.university_status = university_status;
   }
 
-  public JsonNode getQuestions() {
+  public String getQuestions() {
     return this.questions;
   }
 
-  public void setQuestions(JsonNode questions) {
+  public void setQuestions(String questions) {
     this.questions = questions;
   }
 
@@ -320,35 +320,35 @@ public class Apply {
     this.selfIntroduce3 = selfIntroduce3;
   }
 
-  public JsonNode getCareer() {
+  public String getCareer() {
     return this.career;
   }
 
-  public void setCareer(JsonNode career) {
+  public void setCareer(String career) {
     this.career = career;
   }
 
-  public JsonNode getCertificate() {
+  public String getCertificate() {
     return this.certificate;
   }
 
-  public void setCertificate(JsonNode certificate) {
+  public void setCertificate(String certificate) {
     this.certificate = certificate;
   }
 
-  public JsonNode getAwards() {
+  public String getAwards() {
     return this.awards;
   }
 
-  public void setAwards(JsonNode awards) {
+  public void setAwards(String awards) {
     this.awards = awards;
   }
 
-  public JsonNode getActivity() {
+  public String getActivity() {
     return this.activity;
   }
 
-  public void setActivity(JsonNode activity) {
+  public void setActivity(String activity) {
     this.activity = activity;
   }
 
@@ -390,5 +390,6 @@ public class Apply {
       ", activity='" + getActivity() + "'" +
       "}";
   }
-  
+
+
 }

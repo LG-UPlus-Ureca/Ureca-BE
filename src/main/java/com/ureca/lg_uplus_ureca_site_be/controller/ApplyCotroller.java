@@ -44,8 +44,8 @@ public class ApplyCotroller {
     //   response.put("status", "DUPLICATE_APPLICATION_ERROR");
     // } else {
     //   // 위의 조건에 위배되지 않는 경우 -> 지원서 DB에 등록
-    //   service.registerApplication(apply);
-    //   response.put("status", "APPLICATION_SUBMISSION_SUCCESS");
+      service.registerApplication(apply);
+      response.put("status", "APPLICATION_SUBMISSION_SUCCESS");
     // }
 
     return response;

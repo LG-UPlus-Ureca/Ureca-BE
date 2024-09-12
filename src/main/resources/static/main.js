@@ -39,8 +39,8 @@ document.getElementById("test").addEventListener("submit", (event) => {
 
   // 기본 정보 입력
   //  1. 교육 커리큘럼 선택
-  const objectiveValue = JSON.parse(
-    currentForm.querySelector("input[name='objective']:checked").value
+  const supportFieldValue = JSON.parse(
+    currentForm.querySelector("input[name='supportField']:checked").value
   );
 
   //  2. 전공, 비전공자 유무 선택
@@ -62,7 +62,7 @@ document.getElementById("test").addEventListener("submit", (event) => {
   // 5. 인적 사항 입력
   const location = currentForm.location.value;
 
-  // console.log(objectiveValue);
+  // console.log(supportFieldValue);
   // console.log(majorSelectedValue);
   // console.log(pathSelectedValue);
   // console.log(learningSelectedValue);
@@ -96,6 +96,7 @@ document.getElementById("test").addEventListener("submit", (event) => {
   // console.log(universityName);
   // console.log(universityDpartement);
   // console.log(universityMajor);
+  // console.log(universityStatus);
 
   // 자격사항
   const question1 = JSON.parse(
@@ -120,13 +121,17 @@ document.getElementById("test").addEventListener("submit", (event) => {
     currentForm.querySelector("input[name='question7']:checked").value
   );
 
-  // console.log(question1);
-  // console.log(question2);
-  // console.log(question3);
-  // console.log(question4);
-  // console.log(question5);
-  // console.log(question6);
-  // console.log(question7, typeof question7);
+  const questions = [
+    question1,
+    question2,
+    question3,
+    question4,
+    question5,
+    question6,
+    question7,
+  ];
+
+  console.log(questions);
 
   // IT 교육 수강 이력
   const inITLearing = currentForm.inITLearing.value;
@@ -158,51 +163,100 @@ document.getElementById("test").addEventListener("submit", (event) => {
     });
   }
 
-  // console.log(careerList);
+  // 자격증 정보 가져오기
+  const certificate = document.querySelectorAll(
+    ".certificate .certificate-list-item"
+  );
+  const certificateList = [];
 
-  // fetch("/apply/submit", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     name,
-  //     age,
-  //     gender,
-  //     country,
-  //     birth,
-  //     email,
-  //     phoneNumber,
-  //     emergencyPhoneNumber,
-  //     emergencyPhoneNumberRelationship,
-  //     supportField: objectiveValue,
-  //     majorField: majorSelectedValue,
-  //     supportPath: pathSelectedValue,
-  //     teachingStyle: learningSelectedValue,
-  //     address: location,
-  //     highSchool: highSchoolName,
-  //     highSchoolLocation: highSchoolLocation,
-  //     highSchoolType: highSchoolType,
-  //     universityLocation: universityLocation,
-  //     university: universityName,
-  //     universityeDpartment: universityDpartement,
-  //     universityeMajor: universityMajor,
-  //     universityStatus,
-  //     additionalQuestions1: question1,
-  //     additionalQuestions2: question2,
-  //     additionalQuestions3: question3,
-  //     additionalQuestions4: question4,
-  //     additionalQuestions5: question5,
-  //     additionalQuestions6: question6,
-  //     additionalQuestions7: question7,
-  //     inITLearing,
-  //     selfIntroduce1,
-  //     selfIntroduce2,
-  //     selfIntroduce3,
-  //   }),
-  // })
-  //   .then((res) => res.json())
-  //   .then((data) => console.log(data));
+  if (certificate.length > 0) {
+    certificate.forEach((element) => {
+      certificateList.push({
+        certificateName: element.certificateName.value,
+        certificateGrade: element.certificateGrade.value,
+        issuingOrganization: element.issuingOrganization.value,
+        certificateDateAcquired: element.certificateDateAcquired.value,
+      });
+    });
+  }
+
+  // 수상경력 정보 가져오기
+  // 자격증 정보 가져오기
+  const awards = document.querySelectorAll(".awards .awards-list-item");
+  const awardsList = [];
+
+  if (awards.length > 0) {
+    awards.forEach((element) => {
+      awardsList.push({
+        awardIssuer: element.awardIssuer.value,
+        awardName: element.awardName.value,
+        awardDate: element.awardDate.value,
+        awardDetails: element.awardDetails.value,
+      });
+    });
+  }
+
+  // 학내외 활동 정보 가져오기
+  // 자격증 정보 가져오기
+  const activity = document.querySelectorAll(".activity .activity-list-item");
+  const activityList = [];
+
+  if (activity.length > 0) {
+    activity.forEach((element) => {
+      activityList.push({
+        activityDescription: element.activityDescription.value,
+        activityPeriod: element.activityPeriod.value,
+        activityPeriod: element.activityPeriod.value,
+      });
+    });
+  }
+
+  console.log(careerList);
+  console.log(certificateList);
+  console.log(awardsList);
+  console.log(activityList);
+
+  fetch("/apply/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      age,
+      gender,
+      country,
+      birth,
+      email,
+      phone_number: phoneNumber,
+      emergency_phone_number: emergencyPhoneNumber,
+      emergency_phone_number_relationship: emergencyPhoneNumberRelationship,
+      support_field: supportFieldValue,
+      major_field: majorSelectedValue,
+      support_path: pathSelectedValue,
+      teaching_style: learningSelectedValue,
+      address: location,
+      high_school: highSchoolName,
+      high_school_location: highSchoolLocation,
+      high_school_type: highSchoolType,
+      university_location: universityLocation,
+      university: universityName,
+      universitye_dpartment: universityDpartement,
+      universitye_major: universityMajor,
+      university_status: universityStatus,
+      questions,
+      it_learing: inITLearing,
+      selfIntroduce1,
+      selfIntroduce2,
+      selfIntroduce3,
+      career: careerList,
+      certificate: certificateList,
+      awards: awardsList,
+      activity: activityList,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 });
 
 // 직장 경력 추가 버튼 클릭할 경우

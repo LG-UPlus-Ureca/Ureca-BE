@@ -34,6 +34,8 @@ public class ApplyCotroller {
     UUID uuid4 = UUID.randomUUID();
     apply.setApplicant_id(uuid4.toString()); // 지원자 고유한 키 값 등록
 
+    System.out.println(apply);
+
     // // 현재 작성된 지원서 정보가 동일한 사람이 작성했는지 확인한다.
     // Apply list = service.checkOverlapApply(apply.getName(), apply.getPhone_number());
     

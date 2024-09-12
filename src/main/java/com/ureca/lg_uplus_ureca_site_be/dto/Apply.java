@@ -29,7 +29,7 @@ public class Apply {
   private String universitye_dpartment;
   private String universitye_major;
   private String university_status;
-  private JsonNode additional_questions;
+  private JsonNode questions;
   private String it_learing;
   private String selfIntroduce1;
   private String selfIntroduce2;
@@ -44,7 +44,7 @@ public class Apply {
   }
 
 
-  public Apply(String applicant_id, String name, int age, boolean gender, String country, LocalDate birth, String email, String phone_number, String emergency_phone_number, String emergency_phone_number_relationship, boolean support_field, boolean major_field, String support_path, boolean teaching_style, String address, String high_school, String high_school_location, String high_school_type, String university_location, String university, String universitye_dpartment, String universitye_major, String university_status, JsonNode additional_questions, String it_learing, String selfIntroduce1, String selfIntroduce2, String selfIntroduce3, JsonNode career, JsonNode certificate, JsonNode awards, JsonNode activity) {
+  public Apply(String applicant_id, String name, int age, boolean gender, String country, LocalDate birth, String email, String phone_number, String emergency_phone_number, String emergency_phone_number_relationship, boolean support_field, boolean major_field, String support_path, boolean teaching_style, String address, String high_school, String high_school_location, String high_school_type, String university_location, String university, String universitye_dpartment, String universitye_major, String university_status, JsonNode questions, String it_learing, String selfIntroduce1, String selfIntroduce2, String selfIntroduce3, JsonNode career, JsonNode certificate, JsonNode awards, JsonNode activity) {
     this.applicant_id = applicant_id;
     this.name = name;
     this.age = age;
@@ -68,7 +68,7 @@ public class Apply {
     this.universitye_dpartment = universitye_dpartment;
     this.universitye_major = universitye_major;
     this.university_status = university_status;
-    this.additional_questions = additional_questions;
+    this.questions = questions;
     this.it_learing = it_learing;
     this.selfIntroduce1 = selfIntroduce1;
     this.selfIntroduce2 = selfIntroduce2;
@@ -280,12 +280,12 @@ public class Apply {
     this.university_status = university_status;
   }
 
-  public JsonNode getAdditional_questions() {
-    return this.additional_questions;
+  public JsonNode getQuestions() {
+    return this.questions;
   }
 
-  public void setAdditional_questions(JsonNode additional_questions) {
-    this.additional_questions = additional_questions;
+  public void setQuestions(JsonNode questions) {
+    this.questions = questions;
   }
 
   public String getIt_learing() {
@@ -379,7 +379,7 @@ public class Apply {
       ", universitye_dpartment='" + getUniversitye_dpartment() + "'" +
       ", universitye_major='" + getUniversitye_major() + "'" +
       ", university_status='" + getUniversity_status() + "'" +
-      ", additional_questions='" + getAdditional_questions() + "'" +
+      ", questions='" + getQuestions() + "'" +
       ", it_learing='" + getIt_learing() + "'" +
       ", selfIntroduce1='" + getSelfIntroduce1() + "'" +
       ", selfIntroduce2='" + getSelfIntroduce2() + "'" +

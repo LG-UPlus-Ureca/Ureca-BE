@@ -289,24 +289,24 @@ document
     const $inputCertificateName = document.createElement("input");
     $inputCertificateName.type = "text";
     $inputCertificateName.placeholder = "자격증 이름을 명시해주세요.";
-    $inputCertificateName.name = "CertificateName";
+    $inputCertificateName.name = "certificateName";
 
     // 자격증 등급을 입력하는 input 타입 생성
     const $inputCertificateGrade = document.createElement("input");
     $inputCertificateGrade.type = "text";
     $inputCertificateGrade.placeholder = "자격증 등급을 입력해주세요.";
-    $inputCertificateGrade.name = "CertificateGrade";
+    $inputCertificateGrade.name = "certificateGrade";
 
     // 자격증 발급 기관을 입력하는 input 타입 생성
     const $inputIssuingOrganization = document.createElement("input");
     $inputIssuingOrganization.type = "text";
     $inputIssuingOrganization.placeholder = "자격증 발급 기관을 작성해주세요.";
-    $inputIssuingOrganization.name = "IssuingOrganization";
+    $inputIssuingOrganization.name = "issuingOrganization";
 
     // 업무 기간을 입력하는 input 타입 생성
     const $inputCertificateDateAcquired = document.createElement("input");
     $inputCertificateDateAcquired.type = "date";
-    $inputCertificateDateAcquired.name = "CertificateDateAcquired";
+    $inputCertificateDateAcquired.name = "certificateDateAcquired";
 
     const $deleteBtn = document.createElement("button");
     $deleteBtn.type = "button";
@@ -324,3 +324,49 @@ document
 
     document.querySelector(".certificate").appendChild($form);
   });
+
+// 수상 경력 추가 버튼 클릭할 경우
+document.querySelector(".awards button").addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const $form = document.createElement("form");
+  $form.classList.add("awards-list-item");
+
+  // 수상기관을 입력하는 input 타입 생성
+  const $inputAwardIssuer = document.createElement("input");
+  $inputAwardIssuer.type = "text";
+  $inputAwardIssuer.placeholder = "수상기관을 명시해주세요.";
+  $inputAwardIssuer.name = "awardIssuer";
+
+  // 대회명을 입력하는 input 타입 생성
+  const $inputAwardName = document.createElement("input");
+  $inputAwardName.type = "text";
+  $inputAwardName.placeholder = "대회명을 입력해주세요.";
+  $inputAwardName.name = "awardName";
+
+  // 수상일자를 입력하는 input 타입 생성
+  const $inputAwardDate = document.createElement("input");
+  $inputAwardDate.type = "date";
+  $inputAwardDate.name = "awardDate";
+
+  // 수상 내역을 입력하는 input 타입 생성
+  const $inputAwardDetails = document.createElement("input");
+  $inputAwardDetails.type = "text";
+  $inputAwardDetails.name = "awardDetails";
+
+  const $deleteBtn = document.createElement("button");
+  $deleteBtn.type = "button";
+  $deleteBtn.textContent = "삭제";
+
+  $deleteBtn.addEventListener("click", () => {
+    $form.remove();
+  });
+
+  $form.appendChild($inputCertificateName);
+  $form.appendChild($inputCertificateGrade);
+  $form.appendChild($inputIssuingOrganization);
+  $form.appendChild($inputCertificateDateAcquired);
+  $form.appendChild($deleteBtn);
+
+  document.querySelector(".awards").appendChild($form);
+});

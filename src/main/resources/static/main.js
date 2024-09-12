@@ -352,6 +352,7 @@ document.querySelector(".awards button").addEventListener("click", (event) => {
   // 수상 내역을 입력하는 input 타입 생성
   const $inputAwardDetails = document.createElement("input");
   $inputAwardDetails.type = "text";
+  $inputAwardDetails.placeholder = "수상 내역을 입력해주세요.";
   $inputAwardDetails.name = "awardDetails";
 
   const $deleteBtn = document.createElement("button");
@@ -362,11 +363,53 @@ document.querySelector(".awards button").addEventListener("click", (event) => {
     $form.remove();
   });
 
-  $form.appendChild($inputCertificateName);
-  $form.appendChild($inputCertificateGrade);
-  $form.appendChild($inputIssuingOrganization);
-  $form.appendChild($inputCertificateDateAcquired);
+  $form.appendChild($inputAwardIssuer);
+  $form.appendChild($inputAwardName);
+  $form.appendChild($inputAwardDate);
+  $form.appendChild($inputAwardDetails);
   $form.appendChild($deleteBtn);
 
   document.querySelector(".awards").appendChild($form);
 });
+
+// 수상 경력 추가 버튼 클릭할 경우
+document
+  .querySelector(".activity button")
+  .addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const $form = document.createElement("form");
+    $form.classList.add("activity-list-item");
+
+    // 활동 내용을 입력하는 input 타입 생성
+    const $inputActivityDescription = document.createElement("input");
+    $inputActivityDescription.type = "text";
+    $inputActivityDescription.placeholder = "활동 내용을 명시해주세요.";
+    $inputActivityDescription.name = "activityDescription";
+
+    // 활동 기간을 입력하는 input 타입 생성
+    const $inputActivityPeriod = document.createElement("input");
+    $inputActivityPeriod.type = "date";
+    $inputActivityPeriod.name = "activityPeriod";
+
+    // 학내외 활동 직위 또는 역할을 입력하는 input 타입 생성
+    const $inputActivityRole = document.createElement("input");
+    $inputActivityRole.type = "text";
+    $inputActivityRole.placeholder = "직위 또는 역할을 입력해주세요.";
+    $inputActivityRole.name = "activityRole";
+
+    const $deleteBtn = document.createElement("button");
+    $deleteBtn.type = "button";
+    $deleteBtn.textContent = "삭제";
+
+    $deleteBtn.addEventListener("click", () => {
+      $form.remove();
+    });
+
+    $form.appendChild($inputActivityDescription);
+    $form.appendChild($inputActivityPeriod);
+    $form.appendChild($inputActivityRole);
+    $form.appendChild($deleteBtn);
+
+    document.querySelector(".activity").appendChild($form);
+  });

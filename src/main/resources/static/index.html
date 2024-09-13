@@ -32,8 +32,9 @@
   <body>
     <form id="test">
       <!-- 지원자 정보 입력 -->
-      <h2>지원자 정보</h2>
       <div class="box">
+        <h2>지원자 정보</h2>
+
         <input type="text" placeholder="이름을 입력해주세요" name="name" />
         <input type="text" placeholder="나이를 입력해주세요" name="age" />
 
@@ -66,15 +67,16 @@
       </div>
 
       <!-- 기본 정보 입력 -->
-      <h2>기본 정보</h2>
       <div class="box">
+        <h2>기본 정보</h2>
+
         <!-- 교육 커리큘럼 선택 -->
         <div>
           <div>
             <input
               type="radio"
               id="front"
-              name="objective"
+              name="supportField"
               value="true"
               checked
             />
@@ -82,7 +84,7 @@
           </div>
 
           <div>
-            <input type="radio" id="back" name="objective" value="false" />
+            <input type="radio" id="back" name="supportField" value="false" />
             <label for="back">백엔드</label>
           </div>
         </div>
@@ -444,20 +446,48 @@
       <div>
         <h2>경력사항</h2>
 
+        <div class="career">
+          <div class="career_header" style="display: flex">
+            <p>경력 사항 정보</p>
+            <button type="button">추가</button>
+          </div>
+        </div>
+
         <p>IT와 관련된 교육을 수강해 본 이력이 있다면 기술해주십시오.</p>
         <textarea name="inITLearing"></textarea>
       </div>
 
       <div>
         <h2>자격증</h2>
+
+        <div class="certificate">
+          <div class="certificate_header" style="display: flex">
+            <p>자격증 정보</p>
+            <button type="button">추가</button>
+          </div>
+        </div>
       </div>
 
       <div>
         <h2>수상경력</h2>
+
+        <div class="awards">
+          <div class="awards_header" style="display: flex">
+            <p>수상경력 정보</p>
+            <button type="button">추가</button>
+          </div>
+        </div>
       </div>
 
       <div>
         <h2>학내외활동</h2>
+
+        <div class="activity">
+          <div class="activity_header" style="display: flex">
+            <p>학내외활동 정보</p>
+            <button type="button">추가</button>
+          </div>
+        </div>
       </div>
 
       <div>

@@ -2,91 +2,90 @@ package com.ureca.lg_uplus_ureca_site_be.dto;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.databind.JsonNode;
+
 public class Apply {
 
-  private String applicantId;
+  private String applicant_id;
   private String name;
   private int age;
   private boolean gender;
   private String country;
   private LocalDate birth;
   private String email;
-  private String phoneNumber;
-  private String emergencyPhoneNumber;
-  private String emergencyPhoneNumberRelationship;
-  private boolean supportField;
-  private boolean majorField;
-  private String supportPath;
-  private boolean teachingStyle;
+  private String phone_number;
+  private String emergency_phone_number;
+  private String emergency_phone_number_relationship;
+  private boolean support_field;
+  private boolean major_field;
+  private String support_path;
+  private boolean teaching_style;
   private String address;
-  private String highSchool;
-  private String highSchoolLocation;
-  private String highSchoolType;
-  private String universityLocation;
+  private String high_school;
+  private String high_school_location;
+  private String high_school_type;
+  private String university_location;
   private String university;
-  private String universityeDpartment;
-  private String universityeMajor;
-  private String universityStatus;
-  private boolean additionalQuestions1;
-  private boolean additionalQuestions2;
-  private boolean additionalQuestions3;
-  private boolean additionalQuestions4;
-  private boolean additionalQuestions5;
-  private boolean additionalQuestions6;
-  private boolean additionalQuestions7;
-  private String inITLearing;
+  private String universitye_dpartment;
+  private String universitye_major;
+  private String university_status;
+  private String questions;
+  private String it_learing;
   private String selfIntroduce1;
   private String selfIntroduce2;
   private String selfIntroduce3;
-  
+  private String career;
+  private String certificate;
+  private String awards;
+  private String activity;
+
 
   public Apply() {
   }
 
-  public Apply(String applicantId, String name, int age, boolean gender, String country, LocalDate birth, String email, String phoneNumber, String emergencyPhoneNumber, String emergencyPhoneNumberRelationship, boolean supportField, boolean majorField, String supportPath, boolean teachingStyle, String address, String highSchool, String highSchoolLocation, String highSchoolType, String universityLocation, String university, String universityeDpartment, String universityeMajor, String universityStatus, boolean additionalQuestions1, boolean additionalQuestions2, boolean additionalQuestions3, boolean additionalQuestions4, boolean additionalQuestions5, boolean additionalQuestions6, boolean additionalQuestions7, String inITLearing, String selfIntroduce1, String selfIntroduce2, String selfIntroduce3) {
-    this.applicantId = applicantId;
+
+  public Apply(String applicant_id, String name, int age, boolean gender, String country, LocalDate birth, String email, String phone_number, String emergency_phone_number, String emergency_phone_number_relationship, boolean support_field, boolean major_field, String support_path, boolean teaching_style, String address, String high_school, String high_school_location, String high_school_type, String university_location, String university, String universitye_dpartment, String universitye_major, String university_status, String questions, String it_learing, String selfIntroduce1, String selfIntroduce2, String selfIntroduce3, String career, String certificate, String awards, String activity) {
+    this.applicant_id = applicant_id;
     this.name = name;
     this.age = age;
     this.gender = gender;
     this.country = country;
     this.birth = birth;
     this.email = email;
-    this.phoneNumber = phoneNumber;
-    this.emergencyPhoneNumber = emergencyPhoneNumber;
-    this.emergencyPhoneNumberRelationship = emergencyPhoneNumberRelationship;
-    this.supportField = supportField;
-    this.majorField = majorField;
-    this.supportPath = supportPath;
-    this.teachingStyle = teachingStyle;
+    this.phone_number = phone_number;
+    this.emergency_phone_number = emergency_phone_number;
+    this.emergency_phone_number_relationship = emergency_phone_number_relationship;
+    this.support_field = support_field;
+    this.major_field = major_field;
+    this.support_path = support_path;
+    this.teaching_style = teaching_style;
     this.address = address;
-    this.highSchool = highSchool;
-    this.highSchoolLocation = highSchoolLocation;
-    this.highSchoolType = highSchoolType;
-    this.universityLocation = universityLocation;
+    this.high_school = high_school;
+    this.high_school_location = high_school_location;
+    this.high_school_type = high_school_type;
+    this.university_location = university_location;
     this.university = university;
-    this.universityeDpartment = universityeDpartment;
-    this.universityeMajor = universityeMajor;
-    this.universityStatus = universityStatus;
-    this.additionalQuestions1 = additionalQuestions1;
-    this.additionalQuestions2 = additionalQuestions2;
-    this.additionalQuestions3 = additionalQuestions3;
-    this.additionalQuestions4 = additionalQuestions4;
-    this.additionalQuestions5 = additionalQuestions5;
-    this.additionalQuestions6 = additionalQuestions6;
-    this.additionalQuestions7 = additionalQuestions7;
-    this.inITLearing = inITLearing;
+    this.universitye_dpartment = universitye_dpartment;
+    this.universitye_major = universitye_major;
+    this.university_status = university_status;
+    this.questions = questions;
+    this.it_learing = it_learing;
     this.selfIntroduce1 = selfIntroduce1;
     this.selfIntroduce2 = selfIntroduce2;
     this.selfIntroduce3 = selfIntroduce3;
+    this.career = career;
+    this.certificate = certificate;
+    this.awards = awards;
+    this.activity = activity;
   }
 
 
-  public String getApplicantId() {
-    return this.applicantId;
+  public String getApplicant_id() {
+    return this.applicant_id;
   }
 
-  public void setApplicantId(String applicantId) {
-    this.applicantId = applicantId;
+  public void setApplicant_id(String applicant_id) {
+    this.applicant_id = applicant_id;
   }
 
   public String getName() {
@@ -141,72 +140,72 @@ public class Apply {
     this.email = email;
   }
 
-  public String getPhoneNumber() {
-    return this.phoneNumber;
+  public String getPhone_number() {
+    return this.phone_number;
   }
 
-  public void setPhoneNumber(String phoneNumber) {
-    this.phoneNumber = phoneNumber;
+  public void setPhone_number(String phone_number) {
+    this.phone_number = phone_number;
   }
 
-  public String getEmergencyPhoneNumber() {
-    return this.emergencyPhoneNumber;
+  public String getEmergency_phone_number() {
+    return this.emergency_phone_number;
   }
 
-  public void setEmergencyPhoneNumber(String emergencyPhoneNumber) {
-    this.emergencyPhoneNumber = emergencyPhoneNumber;
+  public void setEmergency_phone_number(String emergency_phone_number) {
+    this.emergency_phone_number = emergency_phone_number;
   }
 
-  public String getEmergencyPhoneNumberRelationship() {
-    return this.emergencyPhoneNumberRelationship;
+  public String getEmergency_phone_number_relationship() {
+    return this.emergency_phone_number_relationship;
   }
 
-  public void setEmergencyPhoneNumberRelationship(String emergencyPhoneNumberRelationship) {
-    this.emergencyPhoneNumberRelationship = emergencyPhoneNumberRelationship;
+  public void setEmergency_phone_number_relationship(String emergency_phone_number_relationship) {
+    this.emergency_phone_number_relationship = emergency_phone_number_relationship;
   }
 
-  public boolean isSupportField() {
-    return this.supportField;
+  public boolean isSupport_field() {
+    return this.support_field;
   }
 
-  public boolean getSupportField() {
-    return this.supportField;
+  public boolean getSupport_field() {
+    return this.support_field;
   }
 
-  public void setSupportField(boolean supportField) {
-    this.supportField = supportField;
+  public void setSupport_field(boolean support_field) {
+    this.support_field = support_field;
   }
 
-  public boolean isMajorField() {
-    return this.majorField;
+  public boolean isMajor_field() {
+    return this.major_field;
   }
 
-  public boolean getMajorField() {
-    return this.majorField;
+  public boolean getMajor_field() {
+    return this.major_field;
   }
 
-  public void setMajorField(boolean majorField) {
-    this.majorField = majorField;
+  public void setMajor_field(boolean major_field) {
+    this.major_field = major_field;
   }
 
-  public String getSupportPath() {
-    return this.supportPath;
+  public String getSupport_path() {
+    return this.support_path;
   }
 
-  public void setSupportPath(String supportPath) {
-    this.supportPath = supportPath;
+  public void setSupport_path(String support_path) {
+    this.support_path = support_path;
   }
 
-  public boolean isTeachingStyle() {
-    return this.teachingStyle;
+  public boolean isTeaching_style() {
+    return this.teaching_style;
   }
 
-  public boolean getTeachingStyle() {
-    return this.teachingStyle;
+  public boolean getTeaching_style() {
+    return this.teaching_style;
   }
 
-  public void setTeachingStyle(boolean teachingStyle) {
-    this.teachingStyle = teachingStyle;
+  public void setTeaching_style(boolean teaching_style) {
+    this.teaching_style = teaching_style;
   }
 
   public String getAddress() {
@@ -217,36 +216,36 @@ public class Apply {
     this.address = address;
   }
 
-  public String getHighSchool() {
-    return this.highSchool;
+  public String getHigh_school() {
+    return this.high_school;
   }
 
-  public void setHighSchool(String highSchool) {
-    this.highSchool = highSchool;
+  public void setHigh_school(String high_school) {
+    this.high_school = high_school;
   }
 
-  public String getHighSchoolLocation() {
-    return this.highSchoolLocation;
+  public String getHigh_school_location() {
+    return this.high_school_location;
   }
 
-  public void setHighSchoolLocation(String highSchoolLocation) {
-    this.highSchoolLocation = highSchoolLocation;
+  public void setHigh_school_location(String high_school_location) {
+    this.high_school_location = high_school_location;
   }
 
-  public String getHighSchoolType() {
-    return this.highSchoolType;
+  public String getHigh_school_type() {
+    return this.high_school_type;
   }
 
-  public void setHighSchoolType(String highSchoolType) {
-    this.highSchoolType = highSchoolType;
+  public void setHigh_school_type(String high_school_type) {
+    this.high_school_type = high_school_type;
   }
 
-  public String getUniversityLocation() {
-    return this.universityLocation;
+  public String getUniversity_location() {
+    return this.university_location;
   }
 
-  public void setUniversityLocation(String universityLocation) {
-    this.universityLocation = universityLocation;
+  public void setUniversity_location(String university_location) {
+    this.university_location = university_location;
   }
 
   public String getUniversity() {
@@ -257,120 +256,44 @@ public class Apply {
     this.university = university;
   }
 
-  public String getUniversityeDpartment() {
-    return this.universityeDpartment;
+  public String getUniversitye_dpartment() {
+    return this.universitye_dpartment;
   }
 
-  public void setUniversityeDpartment(String universityeDpartment) {
-    this.universityeDpartment = universityeDpartment;
+  public void setUniversitye_dpartment(String universitye_dpartment) {
+    this.universitye_dpartment = universitye_dpartment;
   }
 
-  public String getUniversityeMajor() {
-    return this.universityeMajor;
+  public String getUniversitye_major() {
+    return this.universitye_major;
   }
 
-  public void setUniversityeMajor(String universityeMajor) {
-    this.universityeMajor = universityeMajor;
+  public void setUniversitye_major(String universitye_major) {
+    this.universitye_major = universitye_major;
   }
 
-  public String getUniversityStatus() {
-    return this.universityStatus;
+  public String getUniversity_status() {
+    return this.university_status;
   }
 
-  public void setUniversityStatus(String universityStatus) {
-    this.universityStatus = universityStatus;
+  public void setUniversity_status(String university_status) {
+    this.university_status = university_status;
   }
 
-  public boolean isAdditionalQuestions1() {
-    return this.additionalQuestions1;
+  public String getQuestions() {
+    return this.questions;
   }
 
-  public boolean getAdditionalQuestions1() {
-    return this.additionalQuestions1;
+  public void setQuestions(String questions) {
+    this.questions = questions;
   }
 
-  public void setAdditionalQuestions1(boolean additionalQuestions1) {
-    this.additionalQuestions1 = additionalQuestions1;
+  public String getIt_learing() {
+    return this.it_learing;
   }
 
-  public boolean isAdditionalQuestions2() {
-    return this.additionalQuestions2;
-  }
-
-  public boolean getAdditionalQuestions2() {
-    return this.additionalQuestions2;
-  }
-
-  public void setAdditionalQuestions2(boolean additionalQuestions2) {
-    this.additionalQuestions2 = additionalQuestions2;
-  }
-
-  public boolean isAdditionalQuestions3() {
-    return this.additionalQuestions3;
-  }
-
-  public boolean getAdditionalQuestions3() {
-    return this.additionalQuestions3;
-  }
-
-  public void setAdditionalQuestions3(boolean additionalQuestions3) {
-    this.additionalQuestions3 = additionalQuestions3;
-  }
-
-  public boolean isAdditionalQuestions4() {
-    return this.additionalQuestions4;
-  }
-
-  public boolean getAdditionalQuestions4() {
-    return this.additionalQuestions4;
-  }
-
-  public void setAdditionalQuestions4(boolean additionalQuestions4) {
-    this.additionalQuestions4 = additionalQuestions4;
-  }
-
-  public boolean isAdditionalQuestions5() {
-    return this.additionalQuestions5;
-  }
-
-  public boolean getAdditionalQuestions5() {
-    return this.additionalQuestions5;
-  }
-
-  public void setAdditionalQuestions5(boolean additionalQuestions5) {
-    this.additionalQuestions5 = additionalQuestions5;
-  }
-
-  public boolean isAdditionalQuestions6() {
-    return this.additionalQuestions6;
-  }
-
-  public boolean getAdditionalQuestions6() {
-    return this.additionalQuestions6;
-  }
-
-  public void setAdditionalQuestions6(boolean additionalQuestions6) {
-    this.additionalQuestions6 = additionalQuestions6;
-  }
-
-  public boolean isAdditionalQuestions7() {
-    return this.additionalQuestions7;
-  }
-
-  public boolean getAdditionalQuestions7() {
-    return this.additionalQuestions7;
-  }
-
-  public void setAdditionalQuestions7(boolean additionalQuestions7) {
-    this.additionalQuestions7 = additionalQuestions7;
-  }
-
-  public String getInITLearing() {
-    return this.inITLearing;
-  }
-
-  public void setInITLearing(String inITLearing) {
-    this.inITLearing = inITLearing;
+  public void setIt_learing(String it_learing) {
+    this.it_learing = it_learing;
   }
 
   public String getSelfIntroduce1() {
@@ -397,43 +320,74 @@ public class Apply {
     this.selfIntroduce3 = selfIntroduce3;
   }
 
+  public String getCareer() {
+    return this.career;
+  }
+
+  public void setCareer(String career) {
+    this.career = career;
+  }
+
+  public String getCertificate() {
+    return this.certificate;
+  }
+
+  public void setCertificate(String certificate) {
+    this.certificate = certificate;
+  }
+
+  public String getAwards() {
+    return this.awards;
+  }
+
+  public void setAwards(String awards) {
+    this.awards = awards;
+  }
+
+  public String getActivity() {
+    return this.activity;
+  }
+
+  public void setActivity(String activity) {
+    this.activity = activity;
+  }
+
+
   @Override
   public String toString() {
     return "{" +
-      " applicantId='" + getApplicantId() + "'" +
+      " applicant_id='" + getApplicant_id() + "'" +
       ", name='" + getName() + "'" +
       ", age='" + getAge() + "'" +
       ", gender='" + isGender() + "'" +
       ", country='" + getCountry() + "'" +
       ", birth='" + getBirth() + "'" +
       ", email='" + getEmail() + "'" +
-      ", phoneNumber='" + getPhoneNumber() + "'" +
-      ", emergencyPhoneNumber='" + getEmergencyPhoneNumber() + "'" +
-      ", emergencyPhoneNumberRelationship='" + getEmergencyPhoneNumberRelationship() + "'" +
-      ", supportField='" + isSupportField() + "'" +
-      ", majorField='" + isMajorField() + "'" +
-      ", supportPath='" + getSupportPath() + "'" +
-      ", teachingStyle='" + isTeachingStyle() + "'" +
+      ", phone_number='" + getPhone_number() + "'" +
+      ", emergency_phone_number='" + getEmergency_phone_number() + "'" +
+      ", emergency_phone_number_relationship='" + getEmergency_phone_number_relationship() + "'" +
+      ", support_field='" + isSupport_field() + "'" +
+      ", major_field='" + isMajor_field() + "'" +
+      ", support_path='" + getSupport_path() + "'" +
+      ", teaching_style='" + isTeaching_style() + "'" +
       ", address='" + getAddress() + "'" +
-      ", highSchool='" + getHighSchool() + "'" +
-      ", highSchoolLocation='" + getHighSchoolLocation() + "'" +
-      ", highSchoolType='" + getHighSchoolType() + "'" +
-      ", universityLocation='" + getUniversityLocation() + "'" +
+      ", high_school='" + getHigh_school() + "'" +
+      ", high_school_location='" + getHigh_school_location() + "'" +
+      ", high_school_type='" + getHigh_school_type() + "'" +
+      ", university_location='" + getUniversity_location() + "'" +
       ", university='" + getUniversity() + "'" +
-      ", universityeDpartment='" + getUniversityeDpartment() + "'" +
-      ", universityeMajor='" + getUniversityeMajor() + "'" +
-      ", universityStatus='" + getUniversityStatus() + "'" +
-      ", additionalQuestions1='" + isAdditionalQuestions1() + "'" +
-      ", additionalQuestions2='" + isAdditionalQuestions2() + "'" +
-      ", additionalQuestions3='" + isAdditionalQuestions3() + "'" +
-      ", additionalQuestions4='" + isAdditionalQuestions4() + "'" +
-      ", additionalQuestions5='" + isAdditionalQuestions5() + "'" +
-      ", additionalQuestions6='" + isAdditionalQuestions6() + "'" +
-      ", additionalQuestions7='" + isAdditionalQuestions7() + "'" +
-      ", inITLearing='" + getInITLearing() + "'" +
+      ", universitye_dpartment='" + getUniversitye_dpartment() + "'" +
+      ", universitye_major='" + getUniversitye_major() + "'" +
+      ", university_status='" + getUniversity_status() + "'" +
+      ", questions='" + getQuestions() + "'" +
+      ", it_learing='" + getIt_learing() + "'" +
       ", selfIntroduce1='" + getSelfIntroduce1() + "'" +
       ", selfIntroduce2='" + getSelfIntroduce2() + "'" +
       ", selfIntroduce3='" + getSelfIntroduce3() + "'" +
+      ", career='" + getCareer() + "'" +
+      ", certificate='" + getCertificate() + "'" +
+      ", awards='" + getAwards() + "'" +
+      ", activity='" + getActivity() + "'" +
       "}";
   }
 

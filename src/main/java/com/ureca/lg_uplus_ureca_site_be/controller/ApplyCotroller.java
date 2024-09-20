@@ -24,7 +24,7 @@ public class ApplyCotroller {
   @Autowired
   ApplyService service;
 
-  // 지원서 제출 할 경우
+  // 지원서 제출 API
   @PostMapping("/submit")
   public Map<String, Object> postMethodName(@RequestBody Apply apply) throws SQLException {
 
@@ -34,19 +34,17 @@ public class ApplyCotroller {
     UUID uuid4 = UUID.randomUUID();
     apply.setApplicant_id(uuid4.toString()); // 지원자 고유한 키 값 등록
 
-    System.out.println(apply);
-
-    // // 현재 작성된 지원서 정보가 동일한 사람이 작성했는지 확인한다.
-    // Apply list = service.checkOverlapApply(apply.getName(), apply.getPhone_number());
+    // 현재 작성된 지원서 정보가 동일한 사람이 작성했는지 확인한다.
+    Apply list = service.checkOverlapApply(apply.getName(), apply.getPhone_number());
     
-    // // 동일한 이름, 전화번호로 지원서를 제출한 경우 -> 중복된 지원 항목 존재 결과 반환
-    // if(list != null) {
-    //   response.put("status", "DUPLICATE_APPLICATION_ERROR");
-    // } else {
-    //   // 위의 조건에 위배되지 않는 경우 -> 지원서 DB에 등록
+    // 동일한 이름, 전화번호로 지원서를 제출한 경우 -> 중복된 지원 항목 존재 결과 반환
+    if(list != null) {
+      response.put("status", "DUPLICATE_APPLICATION_ERROR");
+    } else {
+      // 위의 조건에 위배되지 않는 경우 -> 지원서 DB에 등록
       service.registerApplication(apply);
       response.put("status", "APPLICATION_SUBMISSION_SUCCESS");
-    // }
+    }
 
     return response;
   }

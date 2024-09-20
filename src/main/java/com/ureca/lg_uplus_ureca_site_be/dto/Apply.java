@@ -2,8 +2,6 @@ package com.ureca.lg_uplus_ureca_site_be.dto;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.databind.JsonNode;
-
 public class Apply {
 
   private String applicant_id;

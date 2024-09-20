@@ -29,7 +29,7 @@ public class ApplyServiceImpl implements ApplyService {
     Map<String, Object> params = new HashMap<>();
 
     params.put("name", name); 
-    params.put("phoneNumber", phoneNumber);
+    params.put("phone_number", phoneNumber);
     
     return dao.checkOverlap(params);
   }

@@ -33,10 +33,7 @@
     <form id="test">
       <!-- 지원자 정보 입력 -->
       <div class="box">
-        <h2>지원자 정보</h2>
-
         <input type="text" placeholder="이름을 입력해주세요" name="name" />
-        <input type="text" placeholder="나이를 입력해주세요" name="age" />
 
         <div>
           <input type="radio" id="male" name="gender" value="true" checked />
@@ -46,14 +43,16 @@
           <label for="female">여성</label>
         </div>
 
-        <input type="text" placeholder="국적을 입력해주세요" name="country" />
         <input type="date" placeholder="생년월일을 입력해주세요" name="birth" />
         <input type="text" placeholder="이메일을 입력해주세요" name="email" />
+
         <input
           type="text"
           placeholder="핸드폰 번호를 입력해주세요"
           name="phoneNumber"
         />
+        <input type="text" placeholder="국적을 입력해주세요" name="country" />
+
         <input
           type="text"
           placeholder="긴급 전화 번호를 입력해주세요"
@@ -189,6 +188,14 @@
           <option value="일반고">일반고</option>
           <option value="특성화고">특성화고</option>
         </select>
+
+        <select name="highSchoolStatus" id="high-school-Status">
+          <option value="">-- 재학 여부 --</option>
+          <option value="졸업">졸업</option>
+          <option value="졸업 예정">졸업 예정</option>
+          <option value="재학">재학</option>
+          <option value="휴학">휴학</option>
+        </select>
       </div>
 
       <!-- 대학교 정보 입력 -->
@@ -228,6 +235,104 @@
           <option value="재학">재학</option>
           <option value="휴학">휴학</option>
         </select>
+
+        <div>
+          <input type="text" placeholder="점수" name="universityScore" />
+
+          <select name="universityScoreList" id="university-score-list">
+            <option value="">-- 평점 점수 --</option>
+            <option value="4.0">4.0</option>
+            <option value="4.5">4.5</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 어학 / 자격 / 기타 -->
+      <div>
+        <h2>어학 / 자격 / 기타</h2>
+
+        <div>
+          <h4>자격증</h4>
+
+          <div class="certificate">
+            <div class="certificate_header" style="display: flex">
+              <p>자격증 정보</p>
+              <button type="button">추가</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>수상경력</h4>
+
+          <div class="awards">
+            <div class="awards_header" style="display: flex">
+              <p>수상경력 정보</p>
+              <button type="button">추가</button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4>학내외활동</h4>
+
+          <div class="activity">
+            <div class="activity_header" style="display: flex">
+              <p>학내외활동 정보</p>
+              <button type="button">추가</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 경력 사항 -->
+      <div>
+        <h2>경력사항</h2>
+
+        <div class="career">
+          <div class="career_header" style="display: flex">
+            <p>경력 사항 정보</p>
+            <button type="button">추가</button>
+          </div>
+        </div>
+
+        <p>IT와 관련된 교육을 수강해 본 이력이 있다면 기술해주십시오.</p>
+        <textarea name="inITLearing"></textarea>
+      </div>
+
+      <!-- 자기소개서 -->
+      <div>
+        <h2>자기소개서</h2>
+
+        <!-- 자기소개서 1 -->
+        <div>
+          <p>
+            1. LG 유플러스 유레카 SW교육에 지원하신 동기와 과정 수료 후, 이루고
+            싶은 취업 계획을 작성해 주십시오.
+          </p>
+          <textarea name="selfIntroduce1"></textarea>
+        </div>
+
+        <!-- 자기소개서 2 -->
+        <div>
+          <p>
+            2. [비전공생] 2-1. SW에 관심을 가지게 된 계기 혹은 취업 준비를 하며
+            겪었던 경험에 대해 작성하고, LG 유플러스 유레카 SW교육 과정을 통해
+            향후 어떤 개발자로 성장하고 싶은지 작성해 주십시오.
+          </p>
+          <textarea name="selfIntroduce2"></textarea>
+        </div>
+
+        <!-- 자기소개서 3 -->
+        <div>
+          <p>
+            3. [전공생] 2-2. SW 관련 경험 중 어려웠던 과제와 해결 방안에 대해
+            작성하고, LG 유플러스 유레카 SW교육 과정을 통해 향후 어떤 개발자로
+            성장하고 싶은지 작성해 주십시오. ※SW 관련 경험 : SW 개발, SW
+            프로젝트 및 경진대회 경험(참여, 수상 등), IT 관련 자격증 취득 등
+          </p>
+          <textarea name="selfIntroduce3"></textarea>
+        </div>
       </div>
 
       <!-- 자격 사항 -->
@@ -440,87 +545,6 @@
             />
             <label for="question7-false">아니요</label>
           </div>
-        </div>
-      </div>
-
-      <div>
-        <h2>경력사항</h2>
-
-        <div class="career">
-          <div class="career_header" style="display: flex">
-            <p>경력 사항 정보</p>
-            <button type="button">추가</button>
-          </div>
-        </div>
-
-        <p>IT와 관련된 교육을 수강해 본 이력이 있다면 기술해주십시오.</p>
-        <textarea name="inITLearing"></textarea>
-      </div>
-
-      <div>
-        <h2>자격증</h2>
-
-        <div class="certificate">
-          <div class="certificate_header" style="display: flex">
-            <p>자격증 정보</p>
-            <button type="button">추가</button>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h2>수상경력</h2>
-
-        <div class="awards">
-          <div class="awards_header" style="display: flex">
-            <p>수상경력 정보</p>
-            <button type="button">추가</button>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h2>학내외활동</h2>
-
-        <div class="activity">
-          <div class="activity_header" style="display: flex">
-            <p>학내외활동 정보</p>
-            <button type="button">추가</button>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h2>자기소개서</h2>
-
-        <!-- 자기소개서 1 -->
-        <div>
-          <p>
-            1. LG 유플러스 유레카 SW교육에 지원하신 동기와 과정 수료 후, 이루고
-            싶은 취업 계획을 작성해 주십시오.
-          </p>
-          <textarea name="selfIntroduce1"></textarea>
-        </div>
-
-        <!-- 자기소개서 2 -->
-        <div>
-          <p>
-            2. [비전공생] 2-1. SW에 관심을 가지게 된 계기 혹은 취업 준비를 하며
-            겪었던 경험에 대해 작성하고, LG 유플러스 유레카 SW교육 과정을 통해
-            향후 어떤 개발자로 성장하고 싶은지 작성해 주십시오.
-          </p>
-          <textarea name="selfIntroduce2"></textarea>
-        </div>
-
-        <!-- 자기소개서 3 -->
-        <div>
-          <p>
-            3. [전공생] 2-2. SW 관련 경험 중 어려웠던 과제와 해결 방안에 대해
-            작성하고, LG 유플러스 유레카 SW교육 과정을 통해 향후 어떤 개발자로
-            성장하고 싶은지 작성해 주십시오. ※SW 관련 경험 : SW 개발, SW
-            프로젝트 및 경진대회 경험(참여, 수상 등), IT 관련 자격증 취득 등
-          </p>
-          <textarea name="selfIntroduce3"></textarea>
         </div>
       </div>
 

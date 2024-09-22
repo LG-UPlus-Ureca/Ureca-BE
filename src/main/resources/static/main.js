@@ -1,25 +1,19 @@
-let x = 1;
-
 // 지원서 제출 버튼 클릭할 경우 발생하는 이벤트
 document.getElementById("test").addEventListener("submit", (event) => {
   event.preventDefault();
 
   const currentForm = event.target;
 
-  // 지원자 정보 입력
+  // 인적사항
   const name = currentForm.name.value; // 이름
-  const age = Number(currentForm.age.value); // 나이
-
   // 성별
   const gender = JSON.parse(
     currentForm.querySelector("input[name='gender']:checked").value
   );
-
-  const country = currentForm.country.value; // 국가
   const birth = currentForm.birth.value; // 생년월일
   const email = currentForm.email.value; // 이메일
   const phoneNumber = currentForm.phoneNumber.value; // 핸드폰 번호
-
+  const country = currentForm.country.value; // 국적
   // 긴급 전화 번호
   const emergencyPhoneNumber = currentForm.emergencyPhoneNumber.value;
 
@@ -28,7 +22,6 @@ document.getElementById("test").addEventListener("submit", (event) => {
     currentForm.emergencyPhoneNumberRelationship.value;
 
   // console.log(name);
-  // console.log(age);
   // console.log(gender);
   // console.log(country);
   // console.log(birth);
@@ -59,13 +52,14 @@ document.getElementById("test").addEventListener("submit", (event) => {
       .value
   );
 
-  // 5. 인적 사항 입력
-  const location = currentForm.location.value;
-
   // console.log(supportFieldValue);
   // console.log(majorSelectedValue);
   // console.log(pathSelectedValue);
   // console.log(learningSelectedValue);
+
+  // 인적 사항
+  const location = currentForm.location.value; // 주소
+
   // console.log(location);
 
   // 고등학교 정보
@@ -76,10 +70,14 @@ document.getElementById("test").addEventListener("submit", (event) => {
   const highSchoolType = currentForm.querySelector(
     "select[name='highSchoolType']"
   ).value;
+  const highSchoolStatus = currentForm.querySelector(
+    "select[name='highSchoolStatus']"
+  ).value;
 
   // console.log(highSchoolName);
   // console.log(highSchoolLocation);
   // console.log(highSchoolType);
+  // console.log(highSchoolStatus);
 
   // 대학교 정보
   const universityLocation = currentForm.querySelector(
@@ -91,12 +89,103 @@ document.getElementById("test").addEventListener("submit", (event) => {
   const universityStatus = currentForm.querySelector(
     "select[name='universityStatus']"
   ).value;
+  const universityScore = Number.parseFloat(currentForm.universityScore.value);
+  const universityScoreList = Number.parseFloat(
+    currentForm.querySelector("select[name='universityScoreList']").value
+  );
 
   // console.log(universityLocation);
   // console.log(universityName);
   // console.log(universityDpartement);
   // console.log(universityMajor);
-  // console.log(universityStatus);
+  console.log(universityStatus);
+  // console.log(universityScore);
+  // console.log(universityScoreList);
+
+  // 어학 / 자격 / 기타
+
+  // 자격증 정보 가져오기
+  const certificate = document.querySelectorAll(
+    ".certificate .certificate-list-item"
+  );
+  const certificateList = [];
+
+  if (certificate.length > 0) {
+    certificate.forEach((element) => {
+      certificateList.push({
+        certificateName: element.certificateName.value,
+        certificateGrade: element.certificateGrade.value,
+        issuingOrganization: element.issuingOrganization.value,
+        certificateDateAcquired: element.certificateDateAcquired.value,
+      });
+    });
+  }
+
+  // 수상경력 정보 가져오기
+  const awards = document.querySelectorAll(".awards .awards-list-item");
+  const awardsList = [];
+
+  if (awards.length > 0) {
+    awards.forEach((element) => {
+      awardsList.push({
+        awardIssuer: element.awardIssuer.value,
+        awardName: element.awardName.value,
+        awardDate: element.awardDate.value,
+        awardDetails: element.awardDetails.value,
+      });
+    });
+  }
+
+  // 학내외 활동 정보 가져오기
+  const activity = document.querySelectorAll(".activity .activity-list-item");
+  const activityList = [];
+
+  if (activity.length > 0) {
+    activity.forEach((element) => {
+      activityList.push({
+        activityDescription: element.activityDescription.value,
+        activityPeriod: element.activityPeriod.value,
+        activityPeriod: element.activityPeriod.value,
+      });
+    });
+  }
+
+  console.log(certificateList);
+  console.log(awardsList);
+  console.log(activityList);
+
+  // 경력사항
+  // 경력 사항 정보 가져오기
+  const career = document.querySelectorAll(".career .career-list-item");
+  const careerList = [];
+
+  // 경력 사항 정보 저장하기
+  if (career.length > 0) {
+    career.forEach((element) => {
+      careerList.push({
+        jobName: element.jobName.value,
+        jobType: element.querySelector("select[name='jobType']").value,
+        jobTitle: element.jobTitle.value,
+        jobDuties: element.jobDuties.value,
+        jobTenure: element.jobTenure.value,
+      });
+    });
+  }
+
+  // IT 교육 수강 이력
+  const inITLearing = currentForm.inITLearing.value;
+
+  // console.log(careerList);
+  // console.log(inITLearing);
+
+  // 자기소개
+  const selfIntroduce1 = currentForm.selfIntroduce1.value;
+  const selfIntroduce2 = currentForm.selfIntroduce2.value;
+  const selfIntroduce3 = currentForm.selfIntroduce3.value;
+
+  // console.log(selfIntroduce1);
+  // console.log(selfIntroduce2);
+  // console.log(selfIntroduce3);
 
   // 자격사항
   const question1 = JSON.parse(
@@ -131,90 +220,7 @@ document.getElementById("test").addEventListener("submit", (event) => {
     question7,
   ];
 
-  console.log(questions);
-
-  // IT 교육 수강 이력
-  const inITLearing = currentForm.inITLearing.value;
-  // console.log(inITLearing);
-
-  // 자기소개
-  const selfIntroduce1 = currentForm.selfIntroduce1.value;
-  const selfIntroduce2 = currentForm.selfIntroduce2.value;
-  const selfIntroduce3 = currentForm.selfIntroduce3.value;
-
-  // console.log(selfIntroduce1);
-  // console.log(selfIntroduce2);
-  // console.log(selfIntroduce3);
-
-  // 경력 사항 정보 가져오기
-  const career = document.querySelectorAll(".career .career-list-item");
-  const careerList = [];
-
-  // 경력 사항 정보 저장하기
-  if (career.length > 0) {
-    career.forEach((element) => {
-      careerList.push({
-        jobName: element.jobName.value,
-        jobType: element.querySelector("select[name='jobType']").value,
-        jobTitle: element.jobTitle.value,
-        jobDuties: element.jobDuties.value,
-        jobTenure: element.jobTenure.value,
-      });
-    });
-  }
-
-  // 자격증 정보 가져오기
-  const certificate = document.querySelectorAll(
-    ".certificate .certificate-list-item"
-  );
-  const certificateList = [];
-
-  if (certificate.length > 0) {
-    certificate.forEach((element) => {
-      certificateList.push({
-        certificateName: element.certificateName.value,
-        certificateGrade: element.certificateGrade.value,
-        issuingOrganization: element.issuingOrganization.value,
-        certificateDateAcquired: element.certificateDateAcquired.value,
-      });
-    });
-  }
-
-  // 수상경력 정보 가져오기
-  // 자격증 정보 가져오기
-  const awards = document.querySelectorAll(".awards .awards-list-item");
-  const awardsList = [];
-
-  if (awards.length > 0) {
-    awards.forEach((element) => {
-      awardsList.push({
-        awardIssuer: element.awardIssuer.value,
-        awardName: element.awardName.value,
-        awardDate: element.awardDate.value,
-        awardDetails: element.awardDetails.value,
-      });
-    });
-  }
-
-  // 학내외 활동 정보 가져오기
-  // 자격증 정보 가져오기
-  const activity = document.querySelectorAll(".activity .activity-list-item");
-  const activityList = [];
-
-  if (activity.length > 0) {
-    activity.forEach((element) => {
-      activityList.push({
-        activityDescription: element.activityDescription.value,
-        activityPeriod: element.activityPeriod.value,
-        activityPeriod: element.activityPeriod.value,
-      });
-    });
-  }
-
-  console.log(careerList);
-  console.log(certificateList);
-  console.log(awardsList);
-  console.log(activityList);
+  // console.log(questions);
 
   fetch("/apply/submit", {
     method: "POST",
@@ -222,37 +228,74 @@ document.getElementById("test").addEventListener("submit", (event) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      // 인적사항
       name,
-      age,
       gender,
-      country,
       birth,
       email,
+      country,
       phone_number: phoneNumber,
       emergency_phone_number: emergencyPhoneNumber,
       emergency_phone_number_relationship: emergencyPhoneNumberRelationship,
+
+      // 기본 정보
       support_field: supportFieldValue,
       major_field: majorSelectedValue,
       support_path: pathSelectedValue,
       teaching_style: learningSelectedValue,
+
+      // 인적 사항
       address: location,
+
+      // 고등학교 정보
       high_school: highSchoolName,
       high_school_location: highSchoolLocation,
       high_school_type: highSchoolType,
-      university_location: universityLocation,
+      high_school_status: highSchoolStatus,
+
+      // 대학교 정보
       university: universityName,
-      universitye_dpartment: universityDpartement,
+      university_location: universityLocation,
       universitye_major: universityMajor,
-      university_status: universityStatus,
-      questions: JSON.stringify(questions),
-      it_learing: inITLearing,
-      selfIntroduce1,
-      selfIntroduce2,
-      selfIntroduce3,
-      career: JSON.stringify(careerList),
+      universitye_dpartment: universityDpartement,
+      universitye_score: universityScore,
+      universitye_score_list: universityScoreList,
+      universitye_status: universityStatus,
+
+      // 어학, 자격, 기타
       certificate: JSON.stringify(certificateList),
       awards: JSON.stringify(awardsList),
       activity: JSON.stringify(activityList),
+
+      // 경력 사항
+      career: JSON.stringify(careerList),
+      it_learing: inITLearing,
+
+      // 자기소개서
+      selfIntroduce1,
+      selfIntroduce2,
+      selfIntroduce3,
+
+      // 자격사항
+      questions: JSON.stringify(questions),
+
+      // high_school: highSchoolName,
+      // high_school_location: highSchoolLocation,
+      // high_school_type: highSchoolType,
+      // university_location: universityLocation,
+      // university: universityName,
+      // universitye_dpartment: universityDpartement,
+      // universitye_major: universityMajor,
+      // university_status: universityStatus,
+      // questions: JSON.stringify(questions),
+      // it_learing: inITLearing,
+      // selfIntroduce1,
+      // selfIntroduce2,
+      // selfIntroduce3,
+      // career: JSON.stringify(careerList),
+      // certificate: JSON.stringify(certificateList),
+      // awards: JSON.stringify(awardsList),
+      // activity: JSON.stringify(activityList),
     }),
   })
     .then((res) => res.json())

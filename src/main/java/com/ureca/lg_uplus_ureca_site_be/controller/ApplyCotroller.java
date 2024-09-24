@@ -15,10 +15,12 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/apply")
+@CrossOrigin("*")
 public class ApplyCotroller {
   
   @Autowired

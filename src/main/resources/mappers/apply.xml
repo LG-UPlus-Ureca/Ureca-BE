@@ -5,7 +5,11 @@
 
   <select id="checkOverlap" parameterType="map" resultType="Apply">
     select * from apply
-    where name=#{name} AND phoneNumber=#{phoneNumber}
+    where name=#{name} AND email=#{email} AND phone_number=#{phone_number}
+  </select>
+
+  <select id="checkEmail" parameterType="string" resultType="Apply">
+    select * from apply where email=#{email}
   </select>
 
   <insert id="registerApply" parameterType="Apply">
@@ -13,7 +17,6 @@
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="applicant_id != null">applicant_id,</if>
       <if test="name != null">name,</if>
-      <if test="age != null">age,</if>
       <if test="gender != null">gender,</if>
       <if test="country != null">country,</if>
       <if test="birth != null">birth,</if>
@@ -23,32 +26,34 @@
       <if test="emergency_phone_number_relationship != null">emergency_phone_number_relationship,</if>
       <if test="support_field != null">support_field,</if>
       <if test="major_field != null">major_field,</if>
-      <if test="support_path != null">support_path,</if>
       <if test="teaching_style != null">teaching_style,</if>
+      <if test="support_path != null">support_path,</if>
       <if test="address != null">address,</if>
       <if test="high_school != null">high_school,</if>
       <if test="high_school_location != null">high_school_location,</if>
       <if test="high_school_type != null">high_school_type,</if>
-      <if test="university_location != null">university_location,</if>
+      <if test="high_school_status != null">high_school_status,</if>
       <if test="university != null">university,</if>
-      <if test="universitye_dpartment != null">universitye_dpartment,</if>
+      <if test="university_location != null">university_location,</if>
       <if test="universitye_major != null">universitye_major,</if>
-      <if test="university_status != null">university_status,</if>
-      <if test="questions != null">questions,</if>
+      <if test="universitye_dpartment != null">universitye_dpartment,</if>
+      <if test="universitye_score != null">universitye_score,</if>
+      <if test="universitye_score_list != null">universitye_score_list,</if>
+      <if test="universitye_status != null">universitye_status,</if>
+      <if test="certificate != null">certificate,</if>
+      <if test="awards != null">awards,</if>
+      <if test="activity != null">activity,</if>
+      <if test="career != null">career,</if>
       <if test="it_learing != null">it_learing,</if>
       <if test="selfIntroduce1 != null">selfIntroduce1,</if>
       <if test="selfIntroduce2 != null">selfIntroduce2,</if>
       <if test="selfIntroduce3 != null">selfIntroduce3,</if>
-      <if test="career != null">career,</if>
-      <if test="certificate != null">certificate,</if>
-      <if test="awards != null">awards,</if>
-      <if test="activity != null">activity,</if>
+      <if test="questions != null">questions,</if>
     </trim>
 
     <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
       <if test="applicant_id != null">#{applicant_id},</if>
       <if test="name != null">#{name},</if>
-      <if test="age != null">#{age},</if>
       <if test="gender != null">#{gender},</if>
       <if test="country != null">#{country},</if>
       <if test="birth != null">#{birth},</if>
@@ -58,28 +63,32 @@
       <if test="emergency_phone_number_relationship != null">#{emergency_phone_number_relationship},</if>
       <if test="support_field != null">#{support_field},</if>
       <if test="major_field != null">#{major_field},</if>
-      <if test="support_path != null">#{support_path},</if>
       <if test="teaching_style != null">#{teaching_style},</if>
+      <if test="support_path != null">#{support_path},</if>
       <if test="address != null">#{address},</if>
       <if test="high_school != null">#{high_school},</if>
       <if test="high_school_location != null">#{high_school_location},</if>
       <if test="high_school_type != null">#{high_school_type},</if>
-      <if test="university_location != null">#{university_location},</if>
+      <if test="high_school_status != null">#{high_school_status},</if>
       <if test="university != null">#{university},</if>
-      <if test="universitye_dpartment != null">#{universitye_dpartment},</if>
+      <if test="university_location != null">#{university_location},</if>
       <if test="universitye_major != null">#{universitye_major},</if>
-      <if test="university_status != null">#{university_status},</if>
-      <if test="questions != null">#{questions},</if>
+      <if test="universitye_dpartment != null">#{universitye_dpartment},</if>
+      <if test="universitye_score != null">#{universitye_score},</if>
+      <if test="universitye_score_list != null">#{universitye_score_list},</if>
+      <if test="universitye_status != null">#{universitye_status},</if>
+      <if test="certificate != null">#{certificate},</if>
+      <if test="awards != null">#{awards},</if>
+      <if test="activity != null">#{activity},</if>
+      <if test="career != null">#{career},</if>
       <if test="it_learing != null">#{it_learing},</if>
       <if test="selfIntroduce1 != null">#{selfIntroduce1},</if>
       <if test="selfIntroduce2 != null">#{selfIntroduce2},</if>
       <if test="selfIntroduce3 != null">#{selfIntroduce3},</if>
-      <if test="career != null">#{career},</if>
-      <if test="certificate != null">#{certificate},</if>
-      <if test="awards != null">#{awards},</if>
-      <if test="activity != null">#{activity},</if>
+      <if test="questions != null">#{questions},</if>
     </trim>
-    
-  </insert>
+</insert>
+
+
 
 </mapper>

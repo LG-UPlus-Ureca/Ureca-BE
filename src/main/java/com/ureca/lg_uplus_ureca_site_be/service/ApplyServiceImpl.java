@@ -28,12 +28,13 @@ public class ApplyServiceImpl implements ApplyService {
   }
 
   @Override // 중복된 지원서 항목 존재 여부 반환
-  public boolean checkOverlapApply(String name, String phoneNumber) throws SQLException {
+  public boolean checkOverlapApply(String name, String email, String phoneNumber) throws SQLException {
     
     // MyBatis에는 기본적으로 하나의 자료형만 가질 수 있기 때문에 Map 객체를 이용해서 두 개의 파라미터를 넘긴다.
     Map<String, Object> params = new HashMap<>();
 
     params.put("name", name); 
+    params.put("email", email);
     params.put("phone_number", phoneNumber);
     
     return dao.checkOverlap(params) != null;

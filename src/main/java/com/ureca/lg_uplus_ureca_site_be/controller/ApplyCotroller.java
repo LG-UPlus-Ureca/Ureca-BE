@@ -44,7 +44,7 @@ public class ApplyCotroller {
     }
 
     // 동일 지원서 정보 존재 여부 체크
-    else if(service.checkOverlapApply(apply.getName(), apply.getPhone_number())) {
+    else if(service.checkOverlapApply(apply.getName(), apply.getEmail(), apply.getPhone_number())) {
       response.put("status", 409);
       response.put("message", "DUPLICATE_APPLICATION_ERROR");
     }
@@ -63,12 +63,20 @@ public class ApplyCotroller {
 
   // 지원서 확인 API
   @GetMapping("/confirm")
-  public String getMethodName(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber) {
+  public Map<String, Object> getMethodName(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber) throws SQLException {
     
-    // 입력한 이름과 전화번호에 해당하는 지원서 확인
+    // 브라우저에서 받아온 이름, 이메일, 전화번호를 통해 지원서가 존재하는지 확인한다.
     Map<String, Object> response = new HashMap<>();
 
-    return name + email + phoneNumber;
+    if(service.checkOverlapApply(name, email, phoneNumber)) {
+      response.put("status", 201);
+      response.put("message", "APPLICATION_RECEIVED_SUCCESSFULLY");
+    } else {
+      response.put("status", 409);
+      response.put("message", "APPLICATION_NOT_FOUND");
+    }
+
+    return response;
   }
   
 }

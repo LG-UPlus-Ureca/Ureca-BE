@@ -15,6 +15,6 @@ public interface ApplyService {
   public boolean checkEmailApply(String email) throws SQLException;
 
   // 지원서 정보 반환 Service
-  public boolean checkOverlapApply(String name, String phoneNumber) throws SQLException;
+  public boolean checkOverlapApply(String name, String email, String phoneNumber) throws SQLException;
 
 }

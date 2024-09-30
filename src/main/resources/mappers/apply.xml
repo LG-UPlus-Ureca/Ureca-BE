@@ -5,7 +5,7 @@
 
   <select id="checkOverlap" parameterType="map" resultType="Apply">
     select * from apply
-    where name=#{name} AND phone_number=#{phone_number}
+    where name=#{name} AND email=#{email} AND phone_number=#{phone_number}
   </select>
 
   <select id="checkEmail" parameterType="string" resultType="Apply">

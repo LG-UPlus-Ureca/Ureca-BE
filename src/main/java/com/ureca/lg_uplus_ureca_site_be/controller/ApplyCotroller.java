@@ -1,6 +1,7 @@
 package com.ureca.lg_uplus_ureca_site_be.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ureca.lg_uplus_ureca_site_be.dto.Apply;
@@ -62,11 +63,12 @@ public class ApplyCotroller {
 
   // 지원서 확인 API
   @GetMapping("/confirm")
-  public String getMethodName() {
-      
-    // 입력한 이름과 전화번호에 해당하는 지원서 확인
+  public String getMethodName(@RequestParam("name") String name, @RequestParam("email") String email, @RequestParam("phoneNumber") String phoneNumber) {
     
-    return "My List Confirm";
+    // 입력한 이름과 전화번호에 해당하는 지원서 확인
+    Map<String, Object> response = new HashMap<>();
+
+    return name + email + phoneNumber;
   }
   
 }

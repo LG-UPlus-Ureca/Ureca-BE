@@ -15,3 +15,8 @@
 ## Version 1.0.1
 
 - Main 브랜치에서 오류 및 기능 수정
+
+## Version 1.1.0
+
+- 지원서 확인 API 기능 구현 완료
+- 테스트 용도로 만들어둔 정적 파일 index.html, main.js 파일 삭제
